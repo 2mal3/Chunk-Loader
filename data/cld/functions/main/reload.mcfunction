@@ -10,7 +10,7 @@ scoreboard objectives add cld.crafted minecraft.crafted:minecraft.structure_bloc
 
 scoreboard players set V1 cld.data 1
 scoreboard players set V2 cld.data 0
-scoreboard players set V3 cld.data 0
+scoreboard players set V3 cld.data 1
 
 # Welcome message
 tellraw @a ["",{"text":"[Server] The Chunk Loader Datapack v."},{"score":{"name":"V1","objective":"cld.data"}},{"text":"."},{"score":{"name":"V2","objective":"cld.data"}},{"text":"."},{"score":{"name":"V3","objective":"cld.data"}},{"text":" by 2mal3 was loaded!"}]

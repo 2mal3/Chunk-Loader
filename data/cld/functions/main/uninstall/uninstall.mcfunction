@@ -13,3 +13,6 @@ scoreboard objectives remove cld.crafted
 
 # remove chunk Loader
 execute as @e[type=minecraft:shulker,tag=cld.chunk_loader] at @s run function cld:remove
+
+# disable datapack
+datapack disable "file/Chunk-Loader-Datapack"
