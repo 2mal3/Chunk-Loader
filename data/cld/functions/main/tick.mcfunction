@@ -1,13 +1,13 @@
-# Description: tick commands
-# Called from: #tick
-# Datapck by 2mal3
-
-
-# craft
-execute as @a[scores={cld.crafted=1..}] run function cld:craft/1
+# Description: Main datapack tick
+# Called from: main/reload, main/tick
+# Datapack by 2mal3
 
 # place
-execute as @e[type=minecraft:shulker,tag=cld.chunk_loader,tag=!cld.placed] at @s run function cld:place
+execute as @e[type=minecraft:armor_stand,tag=cld.place] at @s run function cld:place
 
 # Remove
-execute as @e[type=minecraft:shulker,tag=cld.chunk_loader,tag=cld.placed] at @s unless entity @s[nbt={Health:30f}] run function cld:remove
+execute as @e[type=minecraft:armor_stand,tag=cld.chunk_loader] at @s unless block ~ ~ ~ minecraft:stone_bricks run function cld:remove
+
+
+# tick
+schedule function cld:main/tick 5t

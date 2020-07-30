@@ -1,18 +1,18 @@
 # Description: if the chunkloader breaks
 # Called from: main/tick
-# Datapck by 2mal3
+# Datapack by 2mal3
 
 # remove forceload
 forceload remove ~ ~
 
 # send remove message
-tellraw @p {"translate":"This chunk is no longer loaded.","color":"yellow"}
+execute if score $cld.messages cld.data matches 1 run tellraw @p[tag=!global.ignore,tag=!global.ignore.gui] {"text":"This chunk is no longer loaded.","color":"yellow"}
+
+# kill dropped stone item
+kill @e[type=minecraft:item,distance=..1,nbt={Item:{id:"minecraft:stone_bricks"}}]
 
 # drop chunkloader
-summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:shulker_spawn_egg",Count:1b,tag:{display:{Name:'{"text":"Chunk Loader","color":"gold"}'},EntityTag:{Silent:1b,PersistenceRequired:1b,NoAI:1b,AttachFace:0b,Color:15b,Tags:["cld.chunk_loader"]}}}}
-
-# playsound
-playsound minecraft:block.stone.break block @a ~ ~ ~ 10
+execute unless entity @p[gamemode=creative] run loot spawn ~ ~ ~ loot cld:chunk_loader
 
 # kill @s
 tp @s ~ -1000 ~

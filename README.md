@@ -1,12 +1,25 @@
-# Chunk-Loader-Datapack v.1.0.0
+# Chunk-Loader-Datapack v.1.1.7
+Compatibility: Multiplayer 1.14+
 
 With Chunk Loader Datapack the Chunk Loader is added to the game. With it - surprise - you can load chunks.
-Normally the chunks are not loaded anymore when you are out of sight of a player, but with Chunk Loader they are loaded no matter where you are in the world.
-The Chunk Loader can be crafted in the Craftingtable as shown in the picture.
+Normally the chunks are not loaded anymore when you are out of sight of a player, but with Chunk Loader they are loaded no matter where you are in the world.    
+How to crafted the chunk loader is shown on the Planet minecfraft website and in the datapack advancement.                     
+If you want to disable the datapack messages, you can use the `/scoreboard players set $cld.messages cld.data 0` command.                                                                   
+WARNING: If you load too many chunks with this datapack it can come to lags.                          
 
-For this datapack there is texturepack that makes it look a lot better (https://www.dropbox.com/s/n645gh8udps54cl/Chunk%20Loader%20Texture%20Pack.zip?dl=1)
+To make this datapack work you need the [resurcepack](https://www.dropbox.com/s/9qk4izhl6lqmtoa/Chunk-Loader-Resurcepack.zip?dl=1), so that the chunk loader is displayed correctly.
 
-This datapack supports with my Language Pack (https://link-to.net/80983/2mal3sLanguagePack) the languages German, Spanish and French.
+***
+
+### Installation:
+  - Download the file.
+  - Optional: Unzip the file.
+  - Move the file/folder to a datapack folder in a world of your choice.
+  - Download the [resurcepack](https://www.dropbox.com/s/9qk4izhl6lqmtoa/Chunk-Loader-Resurcepack.zip?dl=1).
+  - Move the resurcepack into the resurcepack folder.
 
 
-To uninstall, enter /function #cld:uninstall and drag the datapack folder from the datapacks folder of the World
+### Uninstall:
+  - Enter `/function #cld:uninstall`.
+  - Confirm that you want to uninstall.
+  - Optional: Delete the datapack from the folder.

@@ -1,15 +1,17 @@
 # Description: if a chunk loader is placed
 # Called from: main/tick
-# Datapck by 2mal3
+# Datapack by 2mal3
 
 # load the chunk
 forceload add ~ ~ ~ ~
 
 # send message
-tellraw @p {"translate":"This chunk is now loaded.","color":"yellow"}
+execute if score $cld.messages cld.data matches 1 run tellraw @p[tag=!global.ignore,tag=!global.ignore.gui] {"text":"This chunk is now loaded.","color":"yellow"}
 
-# sound
-playsound minecraft:block.stone.place block @a ~ ~ ~ 10
+# set block with model
+setblock ~ ~ ~ minecraft:stone_bricks
+summon armor_stand ~ ~ ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["cld.chunk_loader","global.ignore"],ArmorItems:[{},{},{},{id:"minecraft:armor_stand",Count:1b,tag:{CustomModelData:333008}}]}
 
-# other
-tag @s add cld.placed
+
+# remove summon entity
+kill @s

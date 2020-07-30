@@ -1,0 +1,13 @@
+{
+  "rewards": {
+    "function": "cld:craft"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "cld:chunk_loader"
+      }
+    }
+  }
+}

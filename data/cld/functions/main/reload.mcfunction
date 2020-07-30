@@ -1,20 +1,27 @@
-# Description: Preparation commands
+# Description: Init the datapack
 # Called from: #reaload
-# Datapck by 2mal3
+# Datapack by 2mal3
 
 # scoreboards
-scoreboard objectives add info trigger
-
 scoreboard objectives add cld.data dummy
-scoreboard objectives add cld.crafted minecraft.crafted:minecraft.structure_block
 
-scoreboard players set V1 cld.data 1
-scoreboard players set V2 cld.data 0
-scoreboard players set V3 cld.data 1
+# store version X.XX.XX
+scoreboard players set $V1 cld.data 1
+scoreboard players set $V2 cld.data 1
+scoreboard players set $V3 cld.data 7
+scoreboard players set $cld.version cld.data 10107
 
-# Welcome message
-tellraw @a ["",{"text":"[Server] The Chunk Loader Datapack v."},{"score":{"name":"V1","objective":"cld.data"}},{"text":"."},{"score":{"name":"V2","objective":"cld.data"}},{"text":"."},{"score":{"name":"V3","objective":"cld.data"}},{"text":" by 2mal3 was loaded!"}]
+# send first run meassage at the first datapack run
+execute unless score $cld.first_run cld.data matches 1 run schedule function cld:main/first_run 4s
 
-# test dificulty
-execute store result score cld.difficulty cld.data run difficulty
-execute if score cld.difficulty cld.data matches 0 run tellraw @a {"translate":"The Chunk Loader Datapack does't work in Peaceful Mode.","color":"red"}
+# start main tick
+function cld:main/tick
+
+
+# Configurable messages for place and destroy chunk loader.
+# Better Chunk Loader block.
+# Better uninstall (Uninstalling will disable the datapack and remove almost all chunk loaders from the world.).
+# Improved performance.
+# Bug fixes.
+# Better compatibility with other datapacks.
+# Removed translation because it's not used.
