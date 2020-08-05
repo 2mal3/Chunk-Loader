@@ -1,12 +1,12 @@
 {
   "rewards": {
-    "function": "cld:craft"
+    "function": "2mal3:chlo/craft"
   },
   "criteria": {
     "requirement": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "cld:chunk_loader"
+        "recipe": "2mal3:chlo/chunk_loader"
       }
     }
   }

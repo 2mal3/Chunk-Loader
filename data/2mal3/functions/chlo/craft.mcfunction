@@ -4,8 +4,8 @@
 
 # give chunk loader
 clear @s minecraft:structure_block
-loot give @s loot cld:chunk_loader
+loot give @s loot 2mal3:chlo/chunk_loader
 
 # remove things
-advancement revoke @s only cld:craft_chunk_loader
-recipe take @s cld:chunk_loader
+advancement revoke @s only 2mal3:chlo/craft_chunk_loader
+recipe take @s 2mal3:chlo/chunk_loader
