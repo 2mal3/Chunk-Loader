@@ -1,0 +1,16 @@
+{
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "item": {
+          "item": "minecraft:item_frame",
+          "nbt": "{CustomModelData:3330201}"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "2mal3:chlo/place/find"
+  }
+}

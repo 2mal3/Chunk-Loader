@@ -8,5 +8,5 @@ tellraw @a[scores={chlo.debug_mode=3..}] [{"text":"[","color":"gray"},{"text":"C
 # Initializes the datapack at the first startup
 execute unless score $chlo.first_run chlo.data matches 1 run function 2mal3:chlo/core/first_run/main
 
-# Start datapack loop
+# Starts the datapack loop
 function 2mal3:chlo/core/tick
