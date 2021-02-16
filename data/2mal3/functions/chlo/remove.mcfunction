@@ -1,5 +1,5 @@
 # Description: if the chunkloader breaks
-# Called from: main/tick
+# Called from: core/tick
 # Datapack by 2mal3
 
 # remove forceload

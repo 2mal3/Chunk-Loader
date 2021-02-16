@@ -1,5 +1,5 @@
 # Description: if a chunk loader is placed
-# Called from: main/tick
+# Called from: core/tick
 # Datapack by 2mal3
 
 # load the chunk
