@@ -1,7 +1,7 @@
 {
   "display": {
       "title": "Chunk Loader v.1.1.8",
-      "description": "With the Chunk Loader Datapack v.1.1.8 by 2mal3 the Chunk Loader is added to the game. With it you can load chunks permanently. It is crafted as follows:\n\nR G R\nG E G\nR G R\n\nR = Redstone Block\nG = Gold Ingot\nE = Ender Eye",
+      "description": "Adds a chunk loader to the game that allows you to permanently load chunks.",
       "icon": {
           "item": "minecraft:structure_block"
       },
