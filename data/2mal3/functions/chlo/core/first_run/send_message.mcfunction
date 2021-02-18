@@ -2,4 +2,4 @@
 # Called from function: 2mal3:chlo/core/first_run/main
 # Datapack by 2mal3
 
-tellraw @a {"text":"Chunk Loader Datapack v1.1.8 by 2mal3 was installed!","color":"blue"}
+tellraw @a {"text":"Chunk Loader Datapack v1.2.0 by 2mal3 was installed!","color":"blue"}

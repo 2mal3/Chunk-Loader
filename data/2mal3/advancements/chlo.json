@@ -1,6 +1,6 @@
 {
   "display": {
-      "title": "Chunk Loader v.1.1.8",
+      "title": "Chunk Loader v.1.2.0",
       "description": "Adds a chunk loader to the game that allows you to permanently load chunks.",
       "icon": {
           "item": "minecraft:structure_block"

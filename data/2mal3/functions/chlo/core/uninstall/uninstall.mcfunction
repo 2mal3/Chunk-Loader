@@ -3,7 +3,7 @@
 # Datapack by 2mal3
 
 # Sends to all players that the datapack has been uninstalled
-tellraw @a [{"text":"Chunk Loader Datapack v1.1.8 by 2mal3 was successfully uninstalled."}]
+tellraw @a [{"text":"Chunk Loader Datapack v1.2.0 by 2mal3 was successfully uninstalled."}]
 
 # Deletes all scoreboards
 scoreboard objectives remove chlo.data
@@ -19,5 +19,5 @@ clear @a item_frame{CustomModelData:3330201}
 schedule clear 2mal3:chlo/core/tick
 
 # Disables the datapack
-datapack disable "file/Chunk-Loader-Datapack"
-datapack disable "file/Chunk-Loader-Datapack.zip"
+datapack disable "file/Chunk-Loader-Datapack-v1.2.0"
+datapack disable "file/Chunk-Loader-Datapack-v1.2.0.zip"

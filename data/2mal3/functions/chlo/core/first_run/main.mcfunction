@@ -10,7 +10,7 @@ scoreboard objectives add chlo.data dummy
 scoreboard objectives add chlo.debug_mode dummy
 
 # Set version variable in format xx.xx.xx
-scoreboard players set $chlo.version chlo.data 10108
+scoreboard players set $chlo.version chlo.data 010200
 
 # Sets the startup configuration
 scoreboard players set $chlo.messages chlo.data 1
