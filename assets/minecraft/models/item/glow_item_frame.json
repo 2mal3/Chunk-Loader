@@ -1,0 +1,14 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "minecraft:item/item_frame"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 3330201
+            },
+            "model": "chlo:chunk_loader"
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+{"criteria":{"requirement":{"trigger": "minecraft:recipe_unlocked","conditions":{"recipe": "chlo:chunk_loader"}}},"rewards":{"function": "chlo:craft","loot": ["chlo:chunk_loader"]}}

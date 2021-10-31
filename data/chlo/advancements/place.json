@@ -1,0 +1,1 @@
+{"criteria":{"requirement":{"trigger": "minecraft:item_used_on_block","conditions":{"item":{"items": ["minecraft:glow_item_frame"],"nbt": "{chunk_loader:1b}"}}}},"rewards":{"function": "chlo:place"}}

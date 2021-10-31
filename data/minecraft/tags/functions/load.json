@@ -1,5 +1,1 @@
-{
-    "values": [
-        "#load:__init"
-    ]
-}
+{"replace":false,"values":["chlo:__generated__/clock/0","chlo:__generated__/clock/1","chlo:__generated__/clock/2","chlo:core/load"]}

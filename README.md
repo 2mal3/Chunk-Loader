@@ -1,34 +1,33 @@
-# Chunk Loader Datapack v.1.2.0
+# Chunk Loader Datapack
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/2mal3/Chunk-Loader-Datapack?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/2mal3/Chunk-Loader-Datapack/total?style=flat-square) ![GitHub](https://img.shields.io/github/license/2mal3/Chunk-Loader-Datapack?style=flat-square)
 
-### WARNING: If you load too many chunks with this datapack it can come to lags.  
+> The resourcepack needed for the datapack is the same file as the datapack. You have to move the downloaded file into the Datapack **and** into the Resourcepack folder.
 
-With Chunk Loader Datapack the Chunk Loader is added to the game. With it - surprise - you can load chunks.
-Normally the chunks are not loaded anymore when you are out of sight of a player, but with Chunk Loader they are loaded no matter where you are in the world.
+With Chunk Loader Datapack the Chunk Loader is added to the game. With it - surprise - you can permanently load chunks.
+This means that you can be anywhere in the world, while the chunk in which the Chunk Loader is placed is still loaded.
 
-To make this datapack work you need the [resurcepack](https://github.com/2mal3/Chunk-Loader-Datapack/releases/latest/), so that the chunk loader is displayed correctly.
+In order for the Chunk Loader to load the chunk, it needs 3 Redstone Dust per minute. To fill, simply right-click and place it inside. As soon as there is no more Redstone dust inside, the chunk loader stops working and the chunk will be unloaded until new Redstone dust is added.
 
-## Crafting recipe:                                                                                                  
-![Crafting Picture](https://github.com/2mal3/core/blob/main/images/chunk-loader-datapack/crafting.png)
+### Crafting recipe:
+![Crafting Picture](https://github.com/2mal3/Chunk-Loader-Datapack/blob/master/images/crafting.jpg)
 
-## Loaded things:
-Unfortunately, for technical reasons, not all aspects of the game can be preserved in loaded chunks.                               
-✔ Entity tick (Entities move, do things, die and so on)                               
-❌Random block tick (Plants grow)                               
-✔ Redstone (All redstone components)                               
-❌ Mob spawning (Monsters and other creatures spawn)
+## Chunk loading:
+Because of technical reasons, the Chunk Loader loads the chunks as the following.
+| -   | -   | -   | -   | -   |
+| --- | --- | --- | --- | --- |
+| -   | TI  | TI  | TI  | -   |
+| -   | TI  | ET  | TI  | -   |
+| -   | TI  | TI  | TI  | -   |
+| -   | -   | -   | -   | -   |
+- **-**: Not loaded, but mobs count for the mob cap
+- **TI**: Normal except plant growth, mob spawning and mob ticking (movement)
+- **ET**: Normal except plant growth and mob spawning
 
-## Compatibility:
-✔ Singleplayer                              
-✔ Multiplayer                               
-✔ Vanilla 1.16+                             
-✔ Fabric                                    
-❔ Forge                                     
-❔ PaperSpigot                               
+_Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa7c6_
 
-## Commands:
-- `/scoreboard players set $chlo.messages chlo.data 0`: Disables the messages when placing and destroying a chunk loader.
-- `/scoreboard players set $chlo.messages chlo.data 1`: Enables the messages when placing and destroying a chunk loader.
-- `/function #2mal3:chlo/debug`: Gives out information about the datapack and the world. Helpful by bug reports.
-- `/function #2mal3:chlo/uninstall`: Uninstalls the datapack                                  
-
-***
+## Technical Notes:
+- Works in Vanilla and Fabric in 1.17.x in Single and Multiplayer
+- Not tested with Forge, Bukkti, Spigot and PaperSpigot but probably don't work
+- Compatible with other datapacks except Unlock all recipes datapacks and datapacks that forceload many chunks themselves
+- To uninstall run the command `/function chlo:core/uninstall`
+- The datapack was created with [mc-build](https://github.com/mc-build/mc-build).
