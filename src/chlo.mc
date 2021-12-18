@@ -200,21 +200,28 @@ dir core {
       scoreboard objectives add 2mal3.debugMode dummy
       scoreboard players set $requireFuel chlo.data 1
       # Set the version in format: xx.xx.xx
-      scoreboard players set $Version chlo.Data 020000
+      scoreboard players set $version chlo.data 020100
       schedule 4s replace {
-        tellraw @a [{"text":"Chunk Loader Datapack v2.0.0 by 2mal3 was installed!","color":"blue"}]
+        tellraw @a [{"text":"Chunk Loader Datapack v2.1.0 by 2mal3 was installed!","color":"blue"}]
       }
     }
-    execute if score %Installed chlo.Data matches 1 unless score $Version chlo.Data matches 020000 run {
-      log ChunkLoader info server <Updated datapack>
+    execute if score %installed chlo.data matches 1 unless score $version chlo.data matches 020100 run {
+      log ChunkLoader info server <Update datapack ...>
 
-      scoreboard players set $Version chlo.Data 020000
+      execute if score $Version chlo.Data matches 020000 run {
+        log ChunkLoader info server <Updated from v2.0.0 to v2.1.0>
+        scoreboard objectives remove chlo.Data
+        scoreboard objectives remove 2mal3.DebugMode
+        scoreboard players set $requireFuel chlo.data 1
+        scoreboard players set $version chlo.data 020100
+        function chlo:core/install
+      }
     }
   }
 
   advancement chlo {
     "display": {
-      "title": "Chunk Loader v2.0.0",
+      "title": "Chunk Loader v2.1.0",
       "description": "Adds a chunk loader to the game that allows you to permanently load chunks!",
       "icon": {
         "item": "minecraft:structure_block"
@@ -274,10 +281,10 @@ dir core {
     # Deletes the scoreboards
     scoreboard objectives remove chlo.data
     # Sends an uninstallation message to all players
-    tellraw @a [{"text":"Chunk Loader Datapack v2.0.0 by 2mal3 was successfully uninstalled."}]
+    tellraw @a [{"text":"Chunk Loader Datapack v2.1.0 by 2mal3 was successfully uninstalled."}]
     # Disables the datapack
     datapack disable "file/Chunk-Loader-Datapack"
-    datapack disable "file/Chunk-Loader-Datapack-v2.0.0"
-    datapack disable "file/Chunk-Loader-Datapack-v2.0.0.zip"
+    datapack disable "file/Chunk-Loader-Datapack-v2.1.0"
+    datapack disable "file/Chunk-Loader-Datapack-v2.1.0.zip"
   }
 }
