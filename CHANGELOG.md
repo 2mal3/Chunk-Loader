@@ -1,4 +1,15 @@
 
+## Update v2.1.0 (18.12.2021)
+
+### Added:
+- Option to disable the fuel consumption
+
+### Changed:
+- Made compatible with the 1.18
+- [Internal] Better variable names
+
+***
+
 ## Update v2.0.0 (31.10.2021)
 
 Hey! I finally managed to release a new update, after almost half a year. This time I've added several sound and particle effects to the Chunk Loader, so it feels much more dynamic now. However, the biggest change is that the chunk loader now requires 3 Redstone Dust every minute. This is mainly to prevent people from placing a Chunk Loader somewhere in the world and then forgetting it, so the chunks are loaded but not used, which I experienced myself.
