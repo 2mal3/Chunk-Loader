@@ -1,29 +1,29 @@
-import macros/log.mcm
+import ../macros/log.mcm
 
 
 # Crafting
 recipe chunk_loader {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "#i#",
-        "iEi",
-        "#i#"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:crying_obsidian"
-        },
-        "i": {
-            "item": "minecraft:iron_ingot"
-        },
-        "E": {
-            "item": "minecraft:ender_eye"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#i#",
+    "iEi",
+    "#i#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:crying_obsidian"
     },
-    "result": {
-        "item": "minecraft:knowledge_book",
-        "count": 1
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
     }
+  },
+  "result": {
+    "item": "minecraft:knowledge_book",
+    "count": 1
+  }
 }
 
 advancement craft {
@@ -118,63 +118,69 @@ function place {
   }
 }
 
+dir loops {
+  # Handle chunk loader destroying
+  clock 1t {
+    name tick
+    execute as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s unless block ~ ~ ~ minecraft:hopper{CustomName:'{"color":"yellow","text":"Chunk Loader"}'} positioned ~ ~0.5 ~ run {
+      log ChunkLoader debug entity Destroyed
 
-# Handle chunk loader destroying
-clock 1t {
-  execute as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s unless block ~ ~ ~ minecraft:hopper{CustomName:'{"color":"yellow","text":"Chunk Loader"}'} positioned ~ ~0.5 ~ run {
-    log ChunkLoader debug entity Destroyed
+      playsound minecraft:item.trident.thunder block @a ~ ~ ~ 1 0.5
+      particle minecraft:item minecraft:ender_eye ~ ~ ~ 0.3 0.5 0.3 0.1 16
 
-    playsound minecraft:item.trident.thunder block @a ~ ~ ~ 1 0.5
-    particle minecraft:item minecraft:ender_eye ~ ~ ~ 0.3 0.5 0.3 0.1 16
-
-    kill @e[type=minecraft:item,distance=..0.5,nbt={Item: {id: "minecraft:hopper", Count: 1b}}]
-    execute if entity @p[gamemode=!creative] run loot spawn ~ ~ ~ loot chlo:chunk_loader
-    forceload remove ~ ~
-    kill @s
+      kill @e[type=minecraft:item,distance=..0.5,nbt={Item: {id: "minecraft:hopper", Count: 1b}}]
+      execute if entity @p[gamemode=!creative] run loot spawn ~ ~ ~ loot chlo:chunk_loader
+      forceload remove ~ ~
+      kill @s
+    }
   }
-}
 
 
-# Main chunk loader loop
-clock 10s {
-  execute as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader,tag=chlo.loading] at @s if entity @p[distance=..16] run {
-    # Ambient
-    playsound minecraft:ambient.soul_sand_valley.mood block @a ~ ~ ~ 0.5 0.5
-    # Particle
-    particle minecraft:witch ~ ~0.1 ~ 0.2 0.4 0.2 0.05 32
+  # Main chunk loader loop
+  clock 10s {
+    name 10_second
+
+    execute as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader,tag=chlo.loading] at @s if entity @p[distance=..16] run {
+      # Ambient
+      playsound minecraft:ambient.soul_sand_valley.mood block @a ~ ~ ~ 0.5 0.5
+      # Particle
+      particle minecraft:witch ~ ~0.1 ~ 0.2 0.4 0.2 0.05 32
+    }
   }
-}
 
-clock 20s {
-  execute as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s run {
+  clock 20s {
+    name 20_second
+
     # Stop the chunk loading if the chunk loader rans out of ful and resums it if it gets something
-    execute(if data block ~ ~ ~ Items.[{id:"minecraft:redstone"}]) {
-      # Loads the chunk if the chunk loader was off before
-      execute if entity @s[tag=!chlo.loading] run {
-        log ChunkLoader debug entity <Resume chunk loading>
-        tag @s add chlo.loading
-        forceload add ~ ~
-      }
-      # Find the slot of the redstone to remove one
-      scoreboard players set .Temp0 chlo.Data 0
-      execute if score .Temp0 chlo.Data matches 0 if data block ~ ~ ~ Items.[{Slot: 0b, id: "minecraft:redstone"}] store success score .Temp0 chlo.Data run item modify block ~ ~ ~ container.0 chlo:reduce_count
-      execute if score .Temp0 chlo.Data matches 0 if data block ~ ~ ~ Items.[{Slot: 1b, id: "minecraft:redstone"}] store success score .Temp0 chlo.Data run item modify block ~ ~ ~ container.1 chlo:reduce_count
-      execute if score .Temp0 chlo.Data matches 0 if data block ~ ~ ~ Items.[{Slot: 2b, id: "minecraft:redstone"}] store success score .Temp0 chlo.Data run item modify block ~ ~ ~ container.2 chlo:reduce_count
-      execute if score .Temp0 chlo.Data matches 0 if data block ~ ~ ~ Items.[{Slot: 3b, id: "minecraft:redstone"}] store success score .Temp0 chlo.Data run item modify block ~ ~ ~ container.3 chlo:reduce_count
-      execute if score .Temp0 chlo.Data matches 0 if data block ~ ~ ~ Items.[{Slot: 4b, id: "minecraft:redstone"}] store success score .Temp0 chlo.Data run item modify block ~ ~ ~ container.4 chlo:reduce_count
-
-    } else {
-      # Stops the chunk loading if the chunk loader was on before
-      execute if entity @s[tag=chlo.loading] run {
-        log ChunkLoader debug entity <Stop chunk loading>
-
-        tag @s remove chlo.loading
-        forceload remove ~ ~
     execute if score $requireFuel chlo.data matches 1 as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s run {
+      execute(if data block ~ ~ ~ Items.[{id:"minecraft:redstone"}]) {
+        # Loads the chunk if the chunk loader was off before
+        execute if entity @s[tag=!chlo.loading] run {
+          log ChunkLoader debug entity <Resume chunk loading>
+          tag @s add chlo.loading
+          forceload add ~ ~
+        }
+        # Find the slot of the redstone to remove one
+        scoreboard players set .temp0 chlo.data 0
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 0b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.0 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 1b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.1 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 2b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.2 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 3b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.3 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 4b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.4 chlo:reduce_count
+
+      } else {
+        # Stops the chunk loading if the chunk loader was on before
+        execute if entity @s[tag=chlo.loading] run {
+          log ChunkLoader debug entity <Stop chunk loading>
+
+          tag @s remove chlo.loading
+          forceload remove ~ ~
+        }
       }
     }
   }
 }
+
 
 
 # Core
@@ -182,15 +188,16 @@ dir core {
   function load {
     log ChunkLoader info server <Datapack reloaded>
 
-    scoreboard objectives add chlo.Data dummy
+    scoreboard objectives add chlo.data dummy
 
     # Initializes the datapack at the first startup or new version
-    execute unless score %Installed chlo.Data matches 1 run {
+    execute unless score %installed chlo.data matches 1 run {
+      name install
       log ChunkLoader info server <Datapack installed>
     
-      scoreboard players set %Installed chlo.Data 1
-      scoreboard objectives add chlo.Data dummy
-      scoreboard objectives add 2mal3.DebugMode dummy
+      scoreboard players set %installed chlo.data 1
+      scoreboard objectives add chlo.data dummy
+      scoreboard objectives add 2mal3.debugMode dummy
       scoreboard players set $requireFuel chlo.data 1
       # Set the version in format: xx.xx.xx
       scoreboard players set $Version chlo.Data 020000
@@ -227,21 +234,20 @@ dir core {
     ## Warns the player if he uses a not supportet server software or minecraft version
     # Get data
     # Prepare variables
-    scoreboard players set .Temp0 chlo.Data 0
-    scoreboard players set .Temp1 chlo.Data 0
+    scoreboard players set .temp0 chlo.data 0
+    scoreboard players set .temp1 chlo.data 0
     # Finds out the version the player plays on
-    execute store result score .Temp0 chlo.Data run data get entity @s DataVersion
+    execute store result score .temp0 chlo.data run data get entity @s DataVersion
     # Checks for specific Server software like Bukkit, Spigot or Paper
-    execute store success score .Temp1 chlo.Data run data get entity @r "Bukkit.updateLevel"
-    execute store success score .Temp1 chlo.Data run data get entity @r "Spigot.ticksLived"
-    execute store success score .Temp1 chlo.Data run data get entity @r "Paper.SpawnReason"
+    execute store success score .temp1 chlo.data run data get entity @r "Bukkit.updateLevel"
+    execute store success score .temp1 chlo.data run data get entity @r "Spigot.ticksLived"
+    execute store success score .temp1 chlo.data run data get entity @r "Paper.SpawnReason"
 
     # Gives an error message for if something is wrong
     # Wrong version
     execute unless score .temp0 chlo.data matches 757.. run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the Minecraft version 1.17.x.","color":"gold"}]
     # Wrong server software
-    execute if score .Temp1 chlo.Data matches 1.. run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This server software is not supported by the datapack, so errors may occur. Please use another server software for better stability.","color":"gold"}]
-    # Texture pack
+    execute if score .temp1 chlo.data matches 1.. run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This server software is not supported by the datapack, so errors may occur. Please use another server software for better stability.","color":"gold"}]
     tellraw @s {"translate":"Chunk Loader Resource Pack is no installed. Please select the resource pack to make the datapack work.", "color": "red"}
 
   }
@@ -266,8 +272,7 @@ dir core {
       kill @s
     }
     # Deletes the scoreboards
-    scoreboard objectives remove chlo.Data
-    scoreboard objectives remove 2mal3.DebugMode
+    scoreboard objectives remove chlo.data
     # Sends an uninstallation message to all players
     tellraw @a [{"text":"Chunk Loader Datapack v2.0.0 by 2mal3 was successfully uninstalled."}]
     # Disables the datapack
