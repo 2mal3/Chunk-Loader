@@ -170,6 +170,7 @@ clock 20s {
 
         tag @s remove chlo.loading
         forceload remove ~ ~
+    execute if score $requireFuel chlo.data matches 1 as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s run {
       }
     }
   }
@@ -190,6 +191,7 @@ dir core {
       scoreboard players set %Installed chlo.Data 1
       scoreboard objectives add chlo.Data dummy
       scoreboard objectives add 2mal3.DebugMode dummy
+      scoreboard players set $requireFuel chlo.data 1
       # Set the version in format: xx.xx.xx
       scoreboard players set $Version chlo.Data 020000
       schedule 4s replace {
