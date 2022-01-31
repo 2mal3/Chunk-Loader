@@ -162,11 +162,11 @@ dir loops {
         }
         # Find the slot of the redstone to remove one
         scoreboard players set .temp0 chlo.data 0
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 0b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.0 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 1b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.1 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 2b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.2 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 3b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.3 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 4b, id: "minecraft:redstone"}] store success score .Temp0 chlo.data run item modify block ~ ~ ~ container.4 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 0b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.0 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 1b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.1 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 2b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.2 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 3b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.3 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 4b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.4 chlo:reduce_count
 
       } else {
         # Stops the chunk loading if the chunk loader was on before
@@ -179,6 +179,10 @@ dir loops {
       }
     }
   }
+}
+
+modifier reduce_count {
+  
 }
 
 
@@ -252,13 +256,13 @@ dir core {
 
     # Gives an error message for if something is wrong
     # Wrong version
-    execute unless score .temp0 chlo.data matches 757.. run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the Minecraft version 1.17.x.","color":"gold"}]
+    execute unless score .temp0 chlo.data matches 755.. run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the Minecraft version 1.18 or a later one.","color":"gold"}]
     # Wrong server software
     execute if score .temp1 chlo.data matches 1.. run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This server software is not supported by the datapack, so errors may occur. Please use another server software for better stability.","color":"gold"}]
     tellraw @s {"translate":"Chunk Loader Resource Pack is no installed. Please select the resource pack to make the datapack work.", "color": "red"}
 
   }
-
+  
   advancement first_join {
     "criteria": {
         "requirement": {
