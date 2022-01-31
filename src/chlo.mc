@@ -181,8 +181,10 @@ dir loops {
   }
 }
 
-modifier reduce_count {
-  
+modifier reduce_count   {
+  "function": "minecraft:set_count",
+  "count": -1,
+  "add": true
 }
 
 
