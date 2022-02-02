@@ -129,7 +129,7 @@ dir loops {
       particle minecraft:item minecraft:ender_eye ~ ~ ~ 0.3 0.5 0.3 0.1 16
 
       kill @e[type=minecraft:item,distance=..0.5,nbt={Item: {id: "minecraft:hopper", Count: 1b}}]
-      execute if entity @p[gamemode=!creative] run loot spawn ~ ~ ~ loot chlo:chunk_loader
+      execute as @p if entity @s[gamemode=!creative] run loot spawn ~ ~ ~ loot chlo:chunk_loader
       forceload remove ~ ~
       kill @s
     }
@@ -247,7 +247,7 @@ dir core {
     ## Warns the player if he uses a not supportet minecraft version
     execute store result score .temp0 chlo.data run data get entity @s DataVersion
 
-    execute unless score .temp0 chlo.data matches 2860..2865 run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the Minecraft version 1.18 or a later one.","color":"gold"}
+    execute unless score .temp0 chlo.data matches 2860..2865 run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the Minecraft version 1.18 or a later one.","color":"gold"}]
     tellraw @s {"translate":"Chunk Loader Resource Pack is no installed. Please select the resource pack to make the datapack work.", "color": "red"}
 
   }
