@@ -244,22 +244,9 @@ dir core {
   }
 
   function first_join {
-    ## Warns the player if he uses a not supportet server software or minecraft version
-    # Get data
-    # Prepare variables
-    scoreboard players set .temp0 chlo.data 0
-    scoreboard players set .temp1 chlo.data 0
-    # Finds out the version the player plays on
+    ## Warns the player if he uses a not supportet minecraft version
     execute store result score .temp0 chlo.data run data get entity @s DataVersion
-    # Checks for specific Server software like Bukkit, Spigot or Paper
-    execute store success score .temp1 chlo.data run data get entity @r "Bukkit.updateLevel"
-    execute store success score .temp1 chlo.data run data get entity @r "Spigot.ticksLived"
-    execute store success score .temp1 chlo.data run data get entity @r "Paper.SpawnReason"
 
-    # Gives an error message for if something is wrong
-    # Wrong version
-    # Wrong server software
-    execute if score .temp1 chlo.data matches 1.. run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This server software is not supported by the datapack, so errors may occur. Please use another server software for better stability.","color":"gold"}]
     execute unless score .temp0 chlo.data matches 2860..2865 run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the Minecraft version 1.18 or a later one.","color":"gold"}
     tellraw @s {"translate":"Chunk Loader Resource Pack is no installed. Please select the resource pack to make the datapack work.", "color": "red"}
 
