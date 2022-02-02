@@ -1,4 +1,14 @@
 
+## Update v2.1.1 (2.2.2022)
+
+### Fixed:
+- Redstone was not removed from the Chunk Loader
+- Datapack indicated itself as incompatible with 1.18.x
+- Chunk Loader has dropped itself when destroyed in creative mode
+- Redstone was taken out of every Chunk Loader slot every time
+
+***
+
 ## Update v2.1.0 (18.12.2021)
 
 ### Added:
