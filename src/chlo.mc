@@ -62,7 +62,7 @@ loot chunk_loader {
             },
             {
               "function": "minecraft:set_nbt",
-              "tag": "{chunk_loader:1b,CustomModelData:3330201,EntityTag:{Tags:[\"chlo.placed\",\"chlo.chunk_loader\",\"chlo.loading\",\"global.ignore\"],Item:{id:\"minecraft:glow_item_frame\",Count:1b,tag:{CustomModelData:3330201}},Invulnerable:1b,Fixed:1b}}"
+              "tag": "{chunk_loader:1b,CustomModelData:3330201,EntityTag:{Tags:[\"chlo.placed\",\"chlo.chunk_loader\",\"chlo.loading\",\"global.ignore\",\"smithed.block\"],Item:{id:\"minecraft:glow_item_frame\",Count:1b,tag:{CustomModelData:3330201}},Invulnerable:1b,Fixed:1b}}"
             }
           ]
         }
