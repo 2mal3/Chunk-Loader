@@ -151,7 +151,7 @@ dir loops {
   clock 20s {
     name 20_second
 
-    # Stop the chunk loading if the chunk loader rans out of ful and resums it if it gets something
+    # Stop the chunk loading if the chunk loader runs out of ful and resumes it if it gets something
     execute if score $requireFuel chlo.data matches 1 as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s run {
       execute(if data block ~ ~ ~ Items.[{id:"minecraft:redstone"}]) {
         # Loads the chunk if the chunk loader was off before
@@ -255,7 +255,7 @@ dir core {
   }
 
   function first_join {
-    ## Warns the player if he uses a not supportet minecraft version
+    ## Warns the player if he uses a not supported minecraft version
     execute store result score .temp0 chlo.data run data get entity @s DataVersion
     execute unless score .temp0 chlo.data matches 2860..2975 run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the 1.18.x to prevent errors.","color":"gold"}]
 
