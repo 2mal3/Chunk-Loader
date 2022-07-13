@@ -257,7 +257,7 @@ dir core {
   function first_join {
     ## Warns the player if he uses a not supported minecraft version
     execute store result score .temp0 chlo.data run data get entity @s DataVersion
-    execute unless score .temp0 chlo.data matches 2860..2975 run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the 1.18.x to prevent errors.","color":"gold"}]
+    execute unless score .temp0 chlo.data matches 2860..3105 run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the 1.18 or a later one to prevent errors.","color":"gold"}]
 
   }
 
