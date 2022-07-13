@@ -200,7 +200,7 @@ dir core {
     execute unless score %installed chlo.data matches 1 run {
       name install
       log ChunkLoader info server <Datapack installed>
-    
+
       scoreboard players set %installed chlo.data 1
       scoreboard objectives add chlo.data dummy
       scoreboard objectives add 2mal3.debugMode dummy
@@ -260,7 +260,7 @@ dir core {
     execute unless score .temp0 chlo.data matches 2860..2975 run tellraw @s [{"text":"[","color":"gray"},{"text":"ChunkLoader","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"This Minecraft version is not supported by the datapack. Please use the 1.18.x to prevent errors.","color":"gold"}]
 
   }
-  
+
   advancement first_join {
     "criteria": {
         "requirement": {
@@ -286,7 +286,6 @@ dir core {
     tellraw @a [{"text":"Chunk Loader Datapack v2.1.2 by 2mal3 was successfully uninstalled.","color": "green"}]
     # Disables the datapack
     datapack disable "file/Chunk-Loader-Datapack"
-    datapack disable "file/Chunk-Loader-Datapack-v2.1.2"
-    datapack disable "file/Chunk-Loader-Datapack-v2.1.2.zip"
+    datapack disable "file/Chunk-Loader-Datapack.zip"
   }
 }
