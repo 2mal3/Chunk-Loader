@@ -30,6 +30,6 @@ jobs:
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          name: No Lag Datapack ${{github.ref_name}}
+          name: Chunk Loader Datapack ${{github.ref_name}}
           body_path: CHANGELOG.md
           files: Chunk-Loader-Datapack.zip
