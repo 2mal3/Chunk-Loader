@@ -153,7 +153,7 @@ dir loops {
 
     # Stop the chunk loading if the chunk loader runs out of ful and resumes it if it gets something
     execute if score $requireFuel chlo.data matches 1 as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s run {
-      execute(if data block ~ ~ ~ Items.[{id:"minecraft:redstone"}]) {
+      execute(if data block ~ ~ ~ Items[{id:"minecraft:redstone"}]) {
         # Loads the chunk if the chunk loader was off before
         execute if entity @s[tag=!chlo.loading] run {
           log ChunkLoader debug entity <Resume chunk loading>
@@ -162,11 +162,11 @@ dir loops {
         }
         # Find the slot of the redstone to remove one
         scoreboard players set .temp0 chlo.data 0
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 0b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.0 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 1b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.1 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 2b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.2 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 3b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.3 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items.[{Slot: 4b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.4 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 0b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.0 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 1b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.1 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 2b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.2 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 3b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.3 chlo:reduce_count
+        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 4b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.4 chlo:reduce_count
 
       } else {
         # Stops the chunk loading if the chunk loader was on before
