@@ -13,7 +13,7 @@ To deactivate this, execute the command `/scoreboard players set $requireFuel ch
 ![Crafting Picture](https://github.com/2mal3/Chunk-Loader-Datapack/blob/master/images/crafting.jpg)
 
 ## Chunk loading:
-Because of technical reasons, the Chunk Loader loads the chunks as the following.
+Because of technical reasons, the Chunk Loader loads the chunks as the following. (every box is a chunk)
 | -   | -   | -   | -   | -   |
 | --- | --- | --- | --- | --- |
 | -   | TI  | TI  | TI  | -   |
