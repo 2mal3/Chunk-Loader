@@ -142,7 +142,7 @@ dir loops {
 
     execute as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader,tag=chlo.loading] at @s if entity @p[distance=..16] run {
       # Ambient
-      playsound minecraft:ambient.soul_sand_valley.mood block @a ~ ~ ~ 0.5 0.5
+      execute if score $sound chlo.data matches 1 run playsound minecraft:ambient.soul_sand_valley.mood block @a ~ ~ ~ 0.5 0.5
       # Particle
       particle minecraft:witch ~ ~0.1 ~ 0.2 0.4 0.2 0.05 32
     }
@@ -205,6 +205,7 @@ dir core {
       scoreboard objectives add chlo.data dummy
       scoreboard objectives add 2mal3.debugMode dummy
       scoreboard players set $requireFuel chlo.data 1
+      scoreboard players set $sound chlo.data 1
       # Set the version in format: xx.xx.xx
       scoreboard players set $version chlo.data 020103
       schedule 4s replace {

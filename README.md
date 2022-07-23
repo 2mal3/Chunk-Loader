@@ -7,10 +7,13 @@ With Chunk Loader Datapack the Chunk Loader is added to the game. With it - surp
 This means that you can be anywhere in the world, while the chunk in which the Chunk Loader is placed is still loaded.
 
 In order for the Chunk Loader to load the chunk, it needs 3 Redstone Dust per minute. To fill, simply right-click and place it inside. As soon as there is no more Redstone dust inside, the chunk loader stops working and the chunk will be unloaded until new Redstone dust is added.
-To deactivate this, execute the command `/scoreboard players set $requireFuel chlo.data 0`.
 
 ### Crafting recipe:
 ![Crafting Picture](https://github.com/2mal3/Chunk-Loader-Datapack/blob/master/images/crafting.jpg)
+
+### Settings:
+ - To deactivate fuel consumption run `/scoreboard players set $requireFuel chlo.data 0`.
+ - To deactivate ambient sound run `/scoreboard players set $sound chlo.data 0`.
 
 ## Chunk loading:
 Because of technical reasons, the Chunk Loader loads the chunks as the following. (every box is a chunk)
