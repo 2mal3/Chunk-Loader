@@ -30,6 +30,7 @@ Because of technical reasons, the Chunk Loader loads the chunks as the following
 _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa7c6_
 
 ## Technical Notes:
+- The chunkloader can also be obtained with the command `/loot give @s loot chlo:chunk_loader`.
 - Works in Vanilla and Fabric in 1.19.x in Single and Multiplayer
 - Not tested with Forge, Bukkti, Spigot and PaperSpigot but probably don't work
 - Compatible with other datapacks except Unlock all recipes datapacks and datapacks that forceload many chunks themselves
