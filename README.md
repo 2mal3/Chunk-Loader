@@ -14,6 +14,7 @@ In order for the Chunk Loader to load the chunk, it needs 3 Redstone Dust per mi
 ### Settings:
  - To deactivate fuel consumption run `/scoreboard players set $requireFuel chlo.data 0`.
  - To deactivate ambient sound run `/scoreboard players set $sound chlo.data 0`.
+ - To change fuel consumption speed run: `/scoreboard players set $fuelTime chlo.data <time in seconds>`.
 
 ## Chunk loading:
 Because of technical reasons, the Chunk Loader loads the chunks as the following. (every box is a chunk)

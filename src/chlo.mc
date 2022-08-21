@@ -148,33 +148,40 @@ dir loops {
     }
   }
 
-  clock 20s {
-    name 20_second
+  clock 1s {
+    name second
 
-    # Stop the chunk loading if the chunk loader runs out of ful and resumes it if it gets something
-    execute if score $requireFuel chlo.data matches 1 as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s run {
-      execute(if data block ~ ~ ~ Items[{id:"minecraft:redstone"}]) {
-        # Loads the chunk if the chunk loader was off before
-        execute if entity @s[tag=!chlo.loading] run {
-          log ChunkLoader debug entity <Resume chunk loading>
-          tag @s add chlo.loading
-          forceload add ~ ~
-        }
-        # Find the slot of the redstone to remove one
-        scoreboard players set .temp0 chlo.data 0
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 0b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.0 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 1b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.1 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 2b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.2 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 3b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.3 chlo:reduce_count
-        execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 4b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.4 chlo:reduce_count
+    execute if score $requireFuel chlo.data matches 1 run {
+      execute if score %fuelTime chlo.data matches 1.. run scoreboard players remove %fuelTime chlo.data 1
+      execute if score %fuelTime chlo.data matches 0 run {
+        scoreboard players operation %fuelTime chlo.data = $fuelTime chlo.data
 
-      } else {
-        # Stops the chunk loading if the chunk loader was on before
-        execute if entity @s[tag=chlo.loading] run {
-          log ChunkLoader debug entity <Stop chunk loading>
+        # Stop the chunk loading if the chunk loader runs out of ful and resumes it if it gets something
+        execute as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s run {
+          execute(if data block ~ ~ ~ Items[{id:"minecraft:redstone"}]) {
+            # Loads the chunk if the chunk loader was off before
+            execute if entity @s[tag=!chlo.loading] run {
+              log ChunkLoader debug entity <Resume chunk loading>
+              tag @s add chlo.loading
+              forceload add ~ ~
+            }
+            # Find the slot of the redstone to remove one
+            scoreboard players set .temp0 chlo.data 0
+            execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 0b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.0 chlo:reduce_count
+            execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 1b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.1 chlo:reduce_count
+            execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 2b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.2 chlo:reduce_count
+            execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 3b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.3 chlo:reduce_count
+            execute if score .temp0 chlo.data matches 0 if data block ~ ~ ~ Items[{Slot: 4b, id: "minecraft:redstone"}] store success score .temp0 chlo.data run item modify block ~ ~ ~ container.4 chlo:reduce_count
 
-          tag @s remove chlo.loading
-          forceload remove ~ ~
+          } else {
+            # Stops the chunk loading if the chunk loader was on before
+            execute if entity @s[tag=chlo.loading] run {
+              log ChunkLoader debug entity <Stop chunk loading>
+
+              tag @s remove chlo.loading
+              forceload remove ~ ~
+            }
+          }
         }
       }
     }
@@ -206,6 +213,8 @@ dir core {
       scoreboard objectives add 2mal3.debugMode dummy
       scoreboard players set $requireFuel chlo.data 1
       scoreboard players set $sound chlo.data 1
+      scoreboard players set $fuelTime chlo.data 20
+      scoreboard players operation %fuelTime chlo.data = $fuelTime chlo.data
       # Set the version in format: xx.xx.xx
       scoreboard players set $version chlo.data 020103
       schedule 4s replace {
