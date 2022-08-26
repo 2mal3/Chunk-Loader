@@ -216,12 +216,12 @@ dir core {
       scoreboard players set $fuelTime chlo.data 20
       scoreboard players operation %fuelTime chlo.data = $fuelTime chlo.data
       # Set the version in format: xx.xx.xx
-      scoreboard players set $version chlo.data 020103
+      scoreboard players set $version chlo.data 020200
       schedule 4s replace {
-        tellraw @a [{"text":"Chunk Loader Datapack v2.1.3 by 2mal3 was installed!","color":"green"}]
+        tellraw @a [{"text":"Chunk Loader Datapack v2.2.0 by 2mal3 was installed!","color":"green"}]
       }
     }
-    execute if score %installed chlo.data matches 1 unless score $version chlo.data matches 020103 run {
+    execute if score %installed chlo.data matches 1 unless score $version chlo.data matches 020200 run {
       log ChunkLoader info server <Update datapack ...>
 
       # v2.1.0
@@ -251,12 +251,22 @@ dir core {
         log ChunkLoader info server <Updated from v2.1.2 to v2.1.3>
         scoreboard players set $version chlo.data 020103
       }
+
+      # 2.2.0
+      execute if score $version chlo.data matches 020200 {
+        log ChunkLoader info server <Updated from v2.1.3 to v2.2.0>
+        scoreboard players set $version chlo.data 020200
+
+        scoreboard players set $sound chlo.data 1
+        scoreboard players set $fuelTime chlo.data 20
+        scoreboard players operation %fuelTime chlo.data = $fuelTime chlo.data
+      }
     }
   }
 
   advancement chlo {
     "display": {
-      "title": "Chunk Loader v2.1.3",
+      "title": "Chunk Loader v2.2.0",
       "description": "Adds a chunk loader to the game that allows you to permanently load chunks!",
       "icon": {
         "item": "minecraft:structure_block"
@@ -301,7 +311,7 @@ dir core {
     # Deletes the scoreboards
     scoreboard objectives remove chlo.data
     # Sends an uninstallation message to all players
-    tellraw @a [{"text":"Chunk Loader Datapack v2.1.3 by 2mal3 was successfully uninstalled.","color": "green"}]
+    tellraw @a [{"text":"Chunk Loader Datapack v2.2.0 by 2mal3 was successfully uninstalled.","color": "green"}]
     # Disables the datapack
     datapack disable "file/Chunk-Loader-Datapack"
     datapack disable "file/Chunk-Loader-Datapack.zip"
