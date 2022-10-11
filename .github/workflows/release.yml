@@ -25,7 +25,7 @@ jobs:
         with:
           filename: "Chunk-Loader-Datapack.zip"
           type: "zip"
-          exclusions: "*.git* /*macros/* /*src/* /*.mcproject/* /*images/* config.json .gitignore"
+          path: "data assets pack.mcmeta icon.png pack.png LICENSE.txt README.md CHANGELOG.md"
 
       - name: Create release
         uses: softprops/action-gh-release@v1
