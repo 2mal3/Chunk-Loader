@@ -31,8 +31,8 @@ jobs:
         with:
           name: artifact
           path: |
-            data
-            pack.mcmeta
+            datapack/data
+            datapack/pack.mcmeta
 
   mc-commands:
     runs-on: ubuntu-latest
