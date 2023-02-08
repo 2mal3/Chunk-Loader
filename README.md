@@ -1,4 +1,4 @@
-# Chunk Loader Datapack
+# Chunk Loader
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/2mal3/Chunk-Loader-Datapack?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/2mal3/Chunk-Loader-Datapack/total?style=flat-square) ![Minecraft](https://img.shields.io/badge/Minecraft-1.19-orange?style=flat-square)
 

@@ -218,7 +218,7 @@ dir core {
       # Set the version in format: xx.xx.xx
       scoreboard players set $version chlo.data 020200
       schedule 4s replace {
-        tellraw @a [{"text":"Chunk Loader Datapack v2.2.0 by 2mal3 was installed!","color":"green"}]
+        tellraw @a [{"text":"Chunk Loader v2.2.0 by 2mal3 was installed!","color":"green"}]
       }
     }
     execute if score %installed chlo.data matches 1 unless score $version chlo.data matches 020200 run {
@@ -311,9 +311,9 @@ dir core {
     # Deletes the scoreboards
     scoreboard objectives remove chlo.data
     # Sends an uninstallation message to all players
-    tellraw @a [{"text":"Chunk Loader Datapack v2.2.0 by 2mal3 was successfully uninstalled.","color": "green"}]
+    tellraw @a [{"text":"Chunk Loader v2.2.0 by 2mal3 was successfully uninstalled.","color": "green"}]
     # Disables the datapack
-    datapack disable "file/Chunk-Loader-Datapack"
-    datapack disable "file/Chunk-Loader-Datapack.zip"
+    datapack disable "file/Chunk-Loader"
+    datapack disable "file/Chunk-Loader.zip"
   }
 }
