@@ -21,17 +21,17 @@ In order for the Chunk Loader to load the chunk, it needs 3 Redstone Dust per mi
 
 ## Chunk loading:
 
-Because of technical reasons, the Chunk Loader loads the chunks as the following. (every box is a chunk)
-| - | - | - | - | - |
+Because of technical reasons, the Chunk Loader loads the chunks as the following. (every box is a chunk)  
+| .   | .   | .   |.    | .   | 
 | --- | --- | --- | --- | --- |
-| - | TI | TI | TI | - |
-| - | TI | ET | TI | - |
-| - | TI | TI | TI | - |
-| - | - | - | - | - |
+| .   | TI  | TI  | TI  | .   |
+| .   | TI  | ET  | TI  | .   |
+| .   | TI  | TI  | TI  | .   |
+| .   | .   | .   | .   | .   |
 
-- **-**: Not loaded, but mobs count for the mob cap
-- **TI**: Normal except plant growth, mob spawning and mob ticking (movement)
-- **ET**: Normal except plant growth and mob spawning
+- `.`: Not loaded, but mobs count for the mob cap
+- `TI`: Normal except plant growth, mob spawning and mob ticking (movement)
+- `ET`: Normal except plant growth and mob spawning
 
 _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa7c6_
 
