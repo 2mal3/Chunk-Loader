@@ -3,33 +3,113 @@ name: Release
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  NAME: 'Chunk-Loader'
+  MODRINTH_ID: 'Eii02wjv'
 
 jobs:
-  build-and-release:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node.js environment
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
         uses: actions/setup-node@v3
 
       - name: Install mc-build
         run: npm i -g mc-build
       - name: Run mc-build
-        run: mcb -build
+        run: cd datapack && mcb -build
 
-      - name: Zip files
-        uses: TheDoctor0/zip-release@0.6.2
+      - name: Squash datapack
+        uses: ComunidadAylas/PackSquash-action@v3
         with:
-          filename: "Chunk-Loader-Datapack.zip"
-          type: "zip"
-          path: "data assets pack.mcmeta icon.png pack.png LICENSE.txt README.md CHANGELOG.md"
+          path: datapack
+          artifact_name: datapack-raw
+      - name: Download datapack-raw
+        uses: actions/download-artifact@v3
+        with:
+          name: datapack-raw
+      - name: Finish datapack
+        run: |
+          mv pack.zip ${{ env.NAME }}.zip
+          zip -u ${{ env.NAME }}.zip LICENSE.txt README.md CHANGELOG.md
+
+      - name: Squash resourcepack
+        uses: ComunidadAylas/PackSquash-action@v3
+        with:
+          path: resourcepack
+          artifact_name: resourcepack-raw
+      - name: Download resourcepack-raw
+        uses: actions/download-artifact@v3
+        with:
+          name: resourcepack-raw
+      - name: Finish resourcepack
+        run: |
+          mv pack.zip ${{ env.NAME }}-Resourcepack.zip
+          zip -u ${{ env.NAME }}-Resourcepack.zip LICENSE.txt README.md CHANGELOG.md
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: |
+            CHANGELOG.md
+            ${{ env.NAME }}.zip
+            ${{ env.NAME }}-Resourcepack.zip
+
+  release-github:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
 
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          name: Chunk Loader Datapack ${{github.ref_name}}
+          name: ${{ env.NAME }} ${{github.ref_name}}
           body_path: CHANGELOG.md
-          files: Chunk-Loader-Datapack.zip
+          files: |
+            ${{ env.NAME }}.zip
+            ${{ env.NAME }}-Resourcepack.zip
+
+  release-modrinth:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+
+      - name: Publish on Modrinth
+        uses: Kir-Antipov/mc-publish@v3.2
+        with:
+          modrinth-id: ${{ env.MODRINTH_ID }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          name: ${{ env.NAME }} ${{github.ref_name}}
+          files-primary: ${{ env.NAME }}.zip
+          files-secondary: ${{ env.NAME }}-Resourcepack.zip
+          version: ${{github.ref_name}}
+          version-type: release
+          changelog-file: CHANGELOG.md
+          loaders: datapack
+          game-versions: |
+            1.19
+            1.19.1
+            1.19.2
+            1.19.3

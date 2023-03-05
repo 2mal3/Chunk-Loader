@@ -7,6 +7,10 @@
     "header": "# Datapack by 2mal3 (https://github.com/2mal3)\n# Built using mc-build (https://github.com/mc-build/mc-build) ",
     "internalScoreboard": "chlo.data",
     "generatedDirectory": "__generated__",
-    "rootNamespace": null
+    "rootNamespace": null,
+    "version": {
+      "str": "v2.2.0",
+      "int": 20200
+    }
   }
 }

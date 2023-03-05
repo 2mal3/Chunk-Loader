@@ -44,3 +44,5 @@ _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa
 - bug reports and suggestions are best done on [GitHub](https://github.com/2mal3/Chunk-Loader-Datapack/issues)
 - to uninstall run the command `/function chlo:core/uninstall`
 - datapack was created with [mc-build](https://github.com/mc-build/mc-build)
+
+_v3.0.2_
