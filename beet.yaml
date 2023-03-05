@@ -1,0 +1,37 @@
+id: "chlo"
+name: "Chunk Loader"
+description: "Adds a chunk loader to the game that allows you to permanently load chunks!"
+author: "2mal3"
+version: "v3.0.0"
+minecraft: "1.19"
+
+output: "build"
+
+data_pack:
+  name: "Chunk-Loader"
+  description: "v3.0.0"
+  pack_format: 12
+  load:
+    - "src"
+
+pipeline:
+  - beet.contrib.rename_files
+  - mecha
+  - plugins.remove_empty_functions
+  - plugins.installation_advancement
+require:
+  - bolt
+
+meta:
+  version: 30000
+
+  rename_files:
+    data_pack:
+      match:
+        functions: "chlo:*"
+      find: '((?!.*-).+)'
+      replace: '\1/child'
+
+  installation_advancement:
+    icon:
+      item: "minecraft:structure_block"

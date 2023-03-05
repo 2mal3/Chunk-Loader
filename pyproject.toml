@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "chunk-loader"
+version = "0.1.0"
+description = ""
+authors = ["2mal3 <56305732+2mal3@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+beet = "^0.84.0"
+mecha = "^0.65.0"
+bolt = "^0.28.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
