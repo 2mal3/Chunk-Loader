@@ -4,28 +4,28 @@
 macro log {
   !IF("$$1"=="debug"){
     !IF("$$2"=="entity"){
-      tellraw @a[scores={2mal3.debugMode=4..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"aqua"},{"text":"/","color":"gray"},{"text":"DEBUG","color":"aqua"},{"text": "/","color": "gray"},{"selector": "@s","color": "aqua"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"aqua"}]
+      tellraw @a[scores={2mal3.debug_mode=4..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"aqua"},{"text":"/","color":"gray"},{"text":"DEBUG","color":"aqua"},{"text": "/","color": "gray"},{"selector": "@s","color": "aqua"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"aqua"}]
     }
     !IF("$$2"=="server"){
-      tellraw @a[scores={2mal3.debugMode=4..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"aqua"},{"text":"/","color":"gray"},{"text":"DEBUG","color":"aqua"},{"text": "/","color": "gray"},{"text": "Server","color": "aqua"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"aqua"}]
+      tellraw @a[scores={2mal3.debug_mode=4..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"aqua"},{"text":"/","color":"gray"},{"text":"DEBUG","color":"aqua"},{"text": "/","color": "gray"},{"text": "Server","color": "aqua"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"aqua"}]
     }
   }
 
   !IF("$$1"=="info"){
     !IF("$$2"=="entity"){
-      tellraw @a[scores={2mal3.debugMode=3..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"green"},{"text":"/","color":"gray"},{"text":"INFO","color":"green"},{"text": "/","color": "gray"},{"selector": "@s","color": "green"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"green"}]
+      tellraw @a[scores={2mal3.debug_mode=3..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"green"},{"text":"/","color":"gray"},{"text":"INFO","color":"green"},{"text": "/","color": "gray"},{"selector": "@s","color": "green"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"green"}]
     }
     !IF("$$2"=="server"){
-      tellraw @a[scores={2mal3.debugMode=3..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"green"},{"text":"/","color":"gray"},{"text":"INFO","color":"green"},{"text": "/","color": "gray"},{"text": "Server","color": "green"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"green"}]
+      tellraw @a[scores={2mal3.debug_mode=3..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"green"},{"text":"/","color":"gray"},{"text":"INFO","color":"green"},{"text": "/","color": "gray"},{"text": "Server","color": "green"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"green"}]
     }
   }
 
   !IF("$$1"=="warn"){
     !IF("$$2"=="entity"){
-      tellraw @a[scores={2mal3.debugMode=2..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"selector": "@s","color": "gold"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"gold"}]
+      tellraw @a[scores={2mal3.debug_mode=2..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"selector": "@s","color": "gold"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"gold"}]
     }
     !IF("$$2"=="server"){
-      tellraw @a[scores={2mal3.debugMode=2..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"gold"}]
+      tellraw @a[scores={2mal3.debug_mode=2..}] [{"text":"[","color":"gray"},{"text":"$$0","color":"gold"},{"text":"/","color":"gray"},{"text":"WARN","color":"gold"},{"text": "/","color": "gray"},{"text": "Server","color": "gold"},{"text":"]: ","color":"gray"},{"text":"$$3","color":"gold"}]
     }
   }
 

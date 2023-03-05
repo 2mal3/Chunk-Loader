@@ -151,10 +151,10 @@ dir loops {
     clock 1s {
         name second
 
-        execute if score $requireFuel chlo.data matches 1 run {
-            execute if score %fuelTime chlo.data matches 1.. run scoreboard players remove %fuelTime chlo.data 1
-            execute if score %fuelTime chlo.data matches 0 run {
-                scoreboard players operation %fuelTime chlo.data = $fuelTime chlo.data
+        execute if score $require_fuel chlo.data matches 1 run {
+            execute if score %fuel_time chlo.data matches 1.. run scoreboard players remove %fuel_time chlo.data 1
+            execute if score %fuel_time chlo.data matches 0 run {
+                scoreboard players operation %fuel_time chlo.data = $fuel_time chlo.data
 
                 # Stop the chunk loading if the chunk loader runs out of ful and resumes it if it gets something
                 execute as @e[type=minecraft:glow_item_frame,tag=chlo.chunk_loader] at @s run {
@@ -214,10 +214,10 @@ dir core {
         scoreboard players set %installed chlo.data 1
         scoreboard objectives add chlo.data dummy
         scoreboard objectives add 2mal3.debugMode dummy
-        scoreboard players set $requireFuel chlo.data 1
+        scoreboard players set $require_fuel chlo.data 1
         scoreboard players set $sound chlo.data 1
-        scoreboard players set $fuelTime chlo.data 20
-        scoreboard players operation %fuelTime chlo.data = $fuelTime chlo.data
+        scoreboard players set $fuel_time chlo.data 20
+        scoreboard players operation %fuel_time chlo.data = $fuel_time chlo.data
         # Set the version in format: xx.xx.xx
         scoreboard players set $version chlo.data <%config.version.int%>
         schedule 4s replace {
@@ -233,7 +233,7 @@ dir core {
             log ChunkLoader info server <Updated from v2.0.0 to v2.1.0>
             scoreboard objectives remove chlo.Data
             scoreboard objectives remove 2mal3.DebugMode
-            scoreboard players set $requireFuel chlo.data 1
+            scoreboard players set $require_fuel chlo.data 1
             scoreboard players set $version chlo.data 020100
             function chlo:core/install
         }
@@ -262,8 +262,8 @@ dir core {
             scoreboard players set $version chlo.data 020200
 
             scoreboard players set $sound chlo.data 1
-            scoreboard players set $fuelTime chlo.data 20
-            scoreboard players operation %fuelTime chlo.data = $fuelTime chlo.data
+            scoreboard players set $fuel_time chlo.data 20
+            scoreboard players operation %fuel_time chlo.data = $fuel_time chlo.data
         }
     }
 
