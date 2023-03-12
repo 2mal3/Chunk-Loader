@@ -12,7 +12,15 @@ data_pack:
   description: "v3.0.0"
   pack_format: 12
   load:
-    - "src"
+    - data: "src"
+    - pack.png: "pack.png"
+
+resource_pack:
+  name:  "Chunk-Loader-Resourcepack"
+  pack_format: 13
+  load:
+    - assets: "assets"
+    - pack.png: "pack.png"
 
 pipeline:
   - beet.contrib.rename_files
