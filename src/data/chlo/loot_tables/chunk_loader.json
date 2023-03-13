@@ -1,0 +1,23 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:dolphin_spawn_egg"
+                }
+            ],
+            "functions": [
+                {
+                    "function": "minecraft:set_nbt",
+                    "tag": "{display:{Name:'{\"text\":\"Chunk Loader\",\"color\":\"yellow\",\"italic\":false}'}, CustomModelData:7156515}"
+                },
+                {
+                    "function": "minecraft:set_nbt",
+                    "tag": "{chunk_loader:1b,EntityTag:{id:\"minecraft:marker\",Tags:[\"chlo.init\"]}}"
+                }
+            ]
+        }
+    ]
+}
