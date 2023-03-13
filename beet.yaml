@@ -12,7 +12,7 @@ data_pack:
   description: "v3.0.0"
   pack_format: 12
   load:
-    - data: "src"
+    - "src"
     - pack.png: "pack.png"
 
 resource_pack:
