@@ -40,6 +40,19 @@ function ./first_join:
         }]
     }
 
+    # Incompatible Minecraft version
+    execute store result score .temp_0 chlo.data run data get entity @s DataVersion
+    execute unless score .temp_0 chlo.data matches 3337..:
+        tellraw @s [
+            {"text": "[", "color": "gray"},
+            {"text": "ChunkLoader", "color": "red", "bold": true},
+            {"text": "]: ", "color": "gray"},
+            {
+                "text": "You are using the incorrect Minecraft version. Please check the website.",
+                "color": "red",
+                "bold": true
+            }
+        ]
 
 advancement ./first_join {
     "criteria": {
