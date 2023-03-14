@@ -10,12 +10,20 @@
             ],
             "functions": [
                 {
-                    "function": "minecraft:set_nbt",
-                    "tag": "{display:{Name:'{\"text\":\"Chunk Loader\",\"color\":\"yellow\",\"italic\":false}'}, CustomModelData:7156515}"
+                    "function": "minecraft:set_name",
+                    "name": {
+                        "text": "Chunk Loader",
+                        "color": "yellow",
+                        "italic": false
+                    }
                 },
                 {
                     "function": "minecraft:set_nbt",
-                    "tag": "{chunk_loader:1b,EntityTag:{id:\"minecraft:marker\",Tags:[\"chlo.init\"]}}"
+                    "tag": "{CustomModelData:7156515,chunk_loader:1b,}"
+                },
+                {
+                    "function": "minecraft:set_nbt",
+                    "tag": "{EntityTag:{id:\"minecraft:marker\",Tags:[\"chlo.init\"]}}"
                 }
             ]
         }

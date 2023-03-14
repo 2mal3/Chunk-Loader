@@ -14,6 +14,7 @@ function ./setup:
 
     kill @s
 
+
 advancement ./place {
     "criteria": {
         "requirement": {
