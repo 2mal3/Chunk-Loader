@@ -28,6 +28,31 @@ function ./install:
             color: "green"
 
 
+## First Join
+function ./first_join:
+    # Check for installed resourcepack
+    tellraw @s {
+        "translate": "The Chunk Loader Resource Pack is not installed. I t's highly recommended that you use it.",
+        "color": "red",
+        "with": [{
+            "text": "The Chunk Loader Resourcepack is enabled",
+            "color": "green"
+        }]
+    }
+
+
+advancement ./first_join {
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:tick"
+        }
+    },
+    "rewards": {
+        "function": "chlo:core/first_join"
+    }
+}
+
+
 ## Uninstall
 function ./uninstall:
     scoreboard objectives remove chlo.data
