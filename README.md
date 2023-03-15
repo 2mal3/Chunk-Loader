@@ -45,4 +45,4 @@ _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa
 - to uninstall run the command `/function chlo:core/uninstall`
 - datapack was created with [mc-build](https://github.com/mc-build/mc-build)
 
-_v1.1.1_
+_v1.3.0_

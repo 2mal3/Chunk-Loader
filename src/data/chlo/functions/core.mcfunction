@@ -45,7 +45,7 @@ function ./first_join:
     execute unless score .temp_0 chlo.data matches 3337..:
         tellraw @s [
             {"text": "[", "color": "gray"},
-            {"text": "ChunkLoader", "color": "red", "bold": true},
+            {"text": f"{ctx.project_name}", "color": "red", "bold": true},
             {"text": "]: ", "color": "gray"},
             {
                 "text": "You are using the incorrect Minecraft version. Please check the website.",
