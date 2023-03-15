@@ -6,6 +6,8 @@ function ./load:
     execute unless score %installed chlo.data matches 1 run function ./install
     execute if score %installed chlo.data matches 1 unless score $version chlo.data matches ctx.meta.version run function ./update
 
+    schedule function chlo:break/clock 1t replace
+
 
 function_tag minecraft:load:
     values:
