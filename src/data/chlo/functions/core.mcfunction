@@ -86,6 +86,11 @@ function ./uninstall:
         setblock ~ ~ ~ minecraft:air
         kill @s
 
+    # Stopp loops
+    schedule clear chlo:loader/clock/tick
+    schedule clear chlo:loader/clock/second
+    schedule clear chlo:loader/clock/10_second
+
     tellraw @a:
         text: f"Uninstalled {ctx.project_name} {ctx.project_version} from {ctx.project_author}!"
         color: "green"
