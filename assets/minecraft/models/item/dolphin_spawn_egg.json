@@ -1,0 +1,11 @@
+{
+    "parent": "minecraft:item/template_spawn_egg",
+    "overrides": [
+        {
+            "predicate": {
+                "custom_model_data": 7156515
+            },
+            "model": "chlo:item/chunk_loader"
+        }
+    ]
+}

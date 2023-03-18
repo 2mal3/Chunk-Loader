@@ -1,2 +1,3 @@
-/datapack/.mcproject/CROSS_RUN.json
-/datapack/data
+.beet_cache
+build
+plugins/__pycache__
