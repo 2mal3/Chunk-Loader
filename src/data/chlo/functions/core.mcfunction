@@ -7,7 +7,7 @@ function ./load:
     execute if score %installed chlo.data matches 1 unless score $version chlo.data matches ctx.meta.version run function ./update
 
     # Loops
-    schedule function chlo:break/clock 1t replace
+    schedule function chlo:loader/clock/tick 1t replace
     schedule function chlo:loader/clock/second 1s replace
     schedule function chlo:loader/clock/10_second 10s replace
 
