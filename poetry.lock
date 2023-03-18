@@ -167,19 +167,19 @@ files = [
 
 [[package]]
 name = "mecha"
-version = "0.65.1"
+version = "0.67.0"
 description = "A powerful Minecraft command library"
 category = "main"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "mecha-0.65.1-py3-none-any.whl", hash = "sha256:65fc9a3d205b293cd13028bf660771a04c48da85ab22fbdb0f72d44cb1e261fa"},
-    {file = "mecha-0.65.1.tar.gz", hash = "sha256:309edd558254a60132898de95e66f6b2ae6c06b6ea91f309ab0c277026296860"},
+    {file = "mecha-0.67.0-py3-none-any.whl", hash = "sha256:89c99bdfd34c8731d0781327fc882d1b5dde6e61565fa39f9db09c01ebc9da55"},
+    {file = "mecha-0.67.0.tar.gz", hash = "sha256:49a95e34be23495731fb996ff87479b0addca3729e77258be1fb2d5dcc007a9b"},
 ]
 
 [package.dependencies]
 beet = ">=0.83.1"
-tokenstream = ">=1.4.2,<2.0.0"
+tokenstream = ">=1.5.0,<2.0.0"
 
 [[package]]
 name = "nbtlib"
@@ -388,4 +388,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "47af99dd745a9fe59495de2a5c9865d06000d93728f11719f486d7e51718116d"
+content-hash = "215319ddf76d1b7f9b652eb932513deb876cf92be35ae34a6d3228f558583b0b"
