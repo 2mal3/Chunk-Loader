@@ -43,6 +43,6 @@ _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa
 - compatible with other datapacks except Unlock all recipes datapacks and datapacks that forceload many chunks themselves
 - bug reports and suggestions are best done on [GitHub](https://github.com/2mal3/Chunk-Loader-Datapack/issues)
 - to uninstall run the command `/function chlo:core/uninstall`
-- datapack was created with [mc-build](https://github.com/mc-build/mc-build)
+- datapack was created with [beet](https://github.com/mcbeet/beet)
 
 _v1.3.0_

@@ -1,7 +1,17 @@
 
-### New:
- - option to disable ambient sound
- - fuel consumption speed setting (idea by [@KINGPC](https://www.planetminecraft.com/member/kingpc/))
+Because of the big changes in this update, old chunk loaders will not work. I recommend uninstalling the old datapack first and then reinstalling the new version from scratch.
 
-### Fixed:
- - compatibility with 1.19.2
+### New
+
+- update to Minecraft version 1.19.4
+- nicer crafting output texture
+
+### Changed
+
+- improved performance
+- wrong Minecraft version warning message
+- [internal] complete rewrite in [beet](https://github.com/mcbeet/beet)
+
+### Fixed
+
+- recipe unlock notification when crafting the chunk loader
