@@ -6,7 +6,10 @@ function ./load:
     execute unless score %installed chlo.data matches 1 run function ./install
     execute if score %installed chlo.data matches 1 unless score $version chlo.data matches ctx.meta.version run function ./update
 
+    # Loops
     schedule function chlo:break/clock 1t replace
+    schedule function chlo:loader/clock/second 1s replace
+    schedule function chlo:loader/clock/10_second 10s replace
 
 
 function_tag minecraft:load:
@@ -22,6 +25,11 @@ function ./install:
     scoreboard objectives add chlo.data dummy
     # Set the version in format: xx.xx.xx
     scoreboard players set $version chlo.data ctx.meta.version
+    # Default config
+    scoreboard players set $sound chlo.data 1
+    scoreboard players set $require_fuel chlo.data 1
+    scoreboard players set $fuel_time chlo.data 20
+    scoreboard players operation %fuel_time chlo.data = $fuel_time chlo.data
 
     # Sent installation message after 4 seconds
     schedule function ./send_message 4s replace:

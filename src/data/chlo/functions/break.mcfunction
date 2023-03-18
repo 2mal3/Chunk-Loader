@@ -12,5 +12,6 @@ function ./destroy:
     kill @e[type=minecraft:item,distance=..0.5,nbt={Item: {id: "minecraft:hopper", Count: 1b}}]
     execute unless entity @p[gamemode=creative] run loot spawn ~0.5 ~0.5 ~0.5 loot chlo:chunk_loader
 
+    forceload remove ~ ~
     setblock ~ ~ ~ minecraft:air
     kill @s
