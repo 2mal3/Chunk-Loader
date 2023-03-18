@@ -9,7 +9,7 @@ In order for the Chunk Loader to load the chunk, it needs 3 Redstone Dust per mi
 
 ### Crafting recipe
 
-![Crafting Picture](https://github.com/2mal3/Chunk-Loader-Datapack/blob/master/images/crafting.jpg)
+![Crafting Picture](https://github.com/2mal3/Chunk-Loader/blob/master/images/crafting.jpg)
 
 ### Settings
 
