@@ -80,6 +80,12 @@ advancement ./first_join {
 function ./uninstall:
     scoreboard objectives remove chlo.data
 
+    # Remove chunk loaders
+    execute as @e[type=minecraft:block_display,tag=chlo.chunk_loader] at @s:
+        forceload remove ~ ~
+        setblock ~ ~ ~ minecraft:air
+        kill @s
+
     tellraw @a:
         text: f"Uninstalled {ctx.project_name} {ctx.project_version} from {ctx.project_author}!"
         color: "green"
