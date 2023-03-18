@@ -2,8 +2,6 @@
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/2mal3/Chunk-Loader?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/2mal3/Chunk-Loader/total?style=flat-square) ![Minecraft](https://img.shields.io/badge/Minecraft-1.19-orange?style=flat-square)
 
-> The resourcepack needed for the datapack is the same file as the datapack. You have to move the downloaded file into the Datapack **and** into the Resourcepack folder.
-
 With Chunk Loader Datapack the Chunk Loader is added to the game. With it - surprise - you can permanently load chunks.
 This means that you can be anywhere in the world, while the chunk in which the Chunk Loader is placed is still loaded.
 
