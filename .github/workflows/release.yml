@@ -123,7 +123,4 @@ jobs:
           changelog-file: CHANGELOG.md
           loaders: datapack
           game-versions: |
-            1.19
-            1.19.1
-            1.19.2
-            1.19.3
+            1.19.4
