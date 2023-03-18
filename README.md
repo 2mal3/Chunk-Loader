@@ -15,9 +15,9 @@ In order for the Chunk Loader to load the chunk, it needs 3 Redstone Dust per mi
 
 ### Settings
 
-- deactivate fuel consumption: `/scoreboard players set $requireFuel chlo.data 0`.
+- deactivate fuel consumption: `/scoreboard players set $require_fuel chlo.data 0`.
 - deactivate ambient sound: `/scoreboard players set $sound chlo.data 0`.
-- change fuel consumption speed: `/scoreboard players set $fuelTime chlo.data <time in seconds>`.
+- change fuel consumption speed: `/scoreboard players set $fuel_time chlo.data <time in seconds>`.
 
 ## Chunk loading
 
@@ -38,7 +38,7 @@ _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa
 ## Technical Notes
 
 - the Chunk Loader can also be obtained with the command `/loot give @s loot chlo:chunk_loader`
-- works in Vanilla and Fabric in 1.19.x in Single and Multiplayer
+- works in Vanilla and Fabric in 1.19.4 in Single and Multiplayer
 - not tested with Forge, Bukkti, Spigot and PaperSpigot but probably don't work
 - compatible with other datapacks except Unlock all recipes datapacks and datapacks that forceload many chunks themselves
 - bug reports and suggestions are best done on [GitHub](https://github.com/2mal3/Chunk-Loader-Datapack/issues)
