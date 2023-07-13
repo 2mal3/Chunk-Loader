@@ -3,7 +3,7 @@
 function ~/load:
     scoreboard objectives add chlo.data dummy
 
-    execute unless score %installed chlo.data matches 1 run function ./install
+    execute unless score %installed chlo.data matches 1 run function ~/install
     execute if score %installed chlo.data matches 1 unless score $version chlo.data matches ctx.meta.version run function ./update
 
     # Loops
