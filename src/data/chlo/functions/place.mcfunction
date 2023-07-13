@@ -16,20 +16,22 @@ function ~/setup:
 
 
 advancement ~/place {
-    "criteria": {
-        "requirement": {
-            "trigger": "minecraft:item_used_on_block",
-            "conditions": {
-                "item": {
-                    "items": [
-                        "minecraft:dolphin_spawn_egg"
-                    ],
-                    "nbt": "{chunk_loader:1b}"
-                }
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "nbt": "{chunk_loader:1b}"
             }
-        }
-    },
-    "rewards": {
-        "function": "chlo:place/place"
+          }
+        ]
+      }
     }
+  },
+  "rewards": {
+    "function": "chlo:place/place"
+  }
 }
