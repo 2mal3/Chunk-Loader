@@ -3,15 +3,19 @@ name: Lint
 on:
   push:
     paths:
-      - '**.bolt'
-      - '**.json'
-      - 'beet.yaml'
+      - "**.bolt"
+      - "**.json"
+      - "beet.yaml"
+    branches:
+      - "**"
   pull_request:
+    branches:
+      - "**"
   workflow_dispatch:
 
 env:
-  VERSION: '1.19'
-  NAME: 'Chunk-Loader'
+  VERSION: "1.20"
+  NAME: "Chunk-Loader"
 
 jobs:
   build:
@@ -24,9 +28,9 @@ jobs:
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
       - name: Install Poetry
-        uses: snok/install-poetry@v1.2.1
+        uses: snok/install-poetry@v1.3.3
         with:
           virtualenvs-in-project: true
       - name: Setup cache
@@ -62,8 +66,8 @@ jobs:
       - name: Check minecraft commands
         uses: mcbeet/check-commands@v1
         with:
-          version: '0.67.0'
-          source: '.'
+          version: "0.73.0"
+          source: "."
           minecraft: ${{ env.VERSION }}
           stats: true
 

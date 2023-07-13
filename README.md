@@ -1,6 +1,6 @@
 # Chunk Loader
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/2mal3/Chunk-Loader?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/2mal3/Chunk-Loader/total?style=flat-square) ![Minecraft](https://img.shields.io/badge/Minecraft-1.19-orange?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/2mal3/Chunk-Loader?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/2mal3/Chunk-Loader/total?style=flat-square) ![Minecraft](https://img.shields.io/badge/Minecraft-1.20-orange?style=flat-square)
 
 With Chunk Loader Datapack the Chunk Loader is added to the game. With it - surprise - you can permanently load chunks.
 This means that you can be anywhere in the world, while the chunk in which the Chunk Loader is placed is still loaded.
@@ -20,12 +20,12 @@ In order for the Chunk Loader to load the chunk, it needs 3 Redstone Dust per mi
 ## Chunk loading
 
 Because of technical reasons, the Chunk Loader loads the chunks as the following. (every box is a chunk)
-| .   | .   | .   |.    | .   |
+| . | . | . |. | . |
 | --- | --- | --- | --- | --- |
-| .   | TI  | TI  | TI  | .   |
-| .   | TI  | ET  | TI  | .   |
-| .   | TI  | TI  | TI  | .   |
-| .   | .   | .   | .   | .   |
+| . | TI | TI | TI | . |
+| . | TI | ET | TI | . |
+| . | TI | TI | TI | . |
+| . | . | . | . | . |
 
 - `.`: Not loaded, but mobs count for the mob cap
 - `TI`: Normal except plant growth, mob spawning and mob ticking (movement)
@@ -43,4 +43,4 @@ _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa
 - to uninstall run the command `/function chlo:core/uninstall`
 - datapack was created with [beet](https://github.com/mcbeet/beet)
 
-_v1.3.0_
+_v1.11_

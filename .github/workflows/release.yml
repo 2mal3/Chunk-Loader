@@ -3,8 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*.*.*'
-  workflow_dispatch:
+      - "v*.*.*"
 
 permissions:
   contents: write
@@ -26,9 +25,9 @@ jobs:
       - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
       - name: Install Poetry
-        uses: snok/install-poetry@v1.2.1
+        uses: snok/install-poetry@v1.3.3
         with:
           virtualenvs-in-project: true
       - name: Setup cache
@@ -38,39 +37,32 @@ jobs:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install
 
       - name: Build
         run: poetry run beet
 
       - name: Squash datapack
-        uses: ComunidadAylas/PackSquash-action@v3
+        uses: ComunidadAylas/PackSquash-action@v4
         with:
-          path: build/${{ env.NAME }}
+          packsquash_version: v0.4.0
           artifact_name: datapack-raw
-      - name: Download datapack-raw
-        uses: actions/download-artifact@v3
-        with:
-          name: datapack-raw
-      - name: Finish datapack
-        run: |
-          mv pack.zip ${{ env.NAME }}.zip
-          zip -u ${{ env.NAME }} LICENSE.txt README.md CHANGELOG.md
+          options: |
+            pack_directory = "build/${{ env.NAME }}"
+            output_file_path = "${{ env.NAME }}.zip"
+      - name: Add secondary files to datapack
+        run: zip -u ${{ env.NAME }} LICENSE.txt README.md CHANGELOG.md
 
       - name: Squash resourcepack
-        uses: ComunidadAylas/PackSquash-action@v3
+        uses: ComunidadAylas/PackSquash-action@v4
         with:
-          path: build/${{ env.NAME }}-Resourcepack
+          packsquash_version: v0.4.0
           artifact_name: resourcepack-raw
-      - name: Download resourcepack-raw
-        uses: actions/download-artifact@v3
-        with:
-          name: resourcepack-raw
-      - name: Finish resourcepack
-        run: |
-          mv pack.zip ${{ env.NAME }}-Resourcepack.zip
-          zip -u ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md
+          options: |
+            path = "build/${{ env.NAME }}-Resourcepack"
+            output_file_path = "${{ env.NAME }}-Resourcepack.zip"
+      - name: Add secondary files to resourcepack
+        run: zip -u ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -123,4 +115,4 @@ jobs:
           changelog-file: CHANGELOG.md
           loaders: datapack
           game-versions: |
-            1.19.4
+            1.20.1

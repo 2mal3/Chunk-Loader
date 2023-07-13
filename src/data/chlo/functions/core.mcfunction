@@ -1,6 +1,6 @@
 
 ## Load
-function ./load:
+function ~/load:
     scoreboard objectives add chlo.data dummy
 
     execute unless score %installed chlo.data matches 1 run function ./install
@@ -12,13 +12,8 @@ function ./load:
     schedule function chlo:loader/clock/10_second 10s replace
 
 
-function_tag minecraft:load:
-    values:
-        - "chlo:core/load"
-
-
 ## Install
-function ./install:
+function ~/load/install:
     scoreboard players set %installed chlo.data 1
 
     # Add scoreboards
@@ -32,14 +27,14 @@ function ./install:
     scoreboard players operation %fuel_time chlo.data = $fuel_time chlo.data
 
     # Sent installation message after 4 seconds
-    schedule function ./send_message 4s replace:
+    schedule function ~/send_message 4s replace:
         tellraw @a:
             text: f"Installed {ctx.project_name} {ctx.project_version} from {ctx.project_author}!"
             color: "green"
 
 
 ## First Join
-function ./first_join:
+function ~/first_join:
     # Check for installed resourcepack
     tellraw @s {
         "translate": "The Chunk Loader Resource Pack is not installed. I t's highly recommended that you use it.",
@@ -52,7 +47,7 @@ function ./first_join:
 
     # Incompatible Minecraft version
     execute store result score .temp_0 chlo.data run data get entity @s DataVersion
-    execute unless score .temp_0 chlo.data matches 3337..:
+    execute unless score .temp_0 chlo.data matches 3463..3465:
         tellraw @s [
             {"text": "[", "color": "gray"},
             {"text": f"{ctx.project_name}", "color": "red", "bold": true},
@@ -77,7 +72,7 @@ advancement ./first_join {
 
 
 ## Uninstall
-function ./uninstall:
+function ~/uninstall:
     scoreboard objectives remove chlo.data
 
     # Remove chunk loaders
