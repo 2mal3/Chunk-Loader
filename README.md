@@ -43,4 +43,4 @@ _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa
 - to uninstall run the command `/function chlo:core/uninstall`
 - datapack was created with [beet](https://github.com/mcbeet/beet)
 
-_v1.11_
+_v1.12_

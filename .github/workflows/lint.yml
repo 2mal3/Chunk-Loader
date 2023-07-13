@@ -6,6 +6,7 @@ on:
       - "**.bolt"
       - "**.json"
       - "beet.yaml"
+      - "**.mcfunction"
     branches:
       - "**"
   pull_request:
