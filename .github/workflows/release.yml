@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 env:
-  NAME: 'Chunk-Loader'
-  MODRINTH_ID: 'Eii02wjv'
+  NAME: "Chunk-Loader"
+  MODRINTH_ID: "Eii02wjv"
 
 jobs:
   build:
@@ -59,7 +59,7 @@ jobs:
           packsquash_version: v0.4.0
           artifact_name: resourcepack-raw
           options: |
-            path = "build/${{ env.NAME }}-Resourcepack"
+            pack_directory = "build/${{ env.NAME }}-Resourcepack"
             output_file_path = "${{ env.NAME }}-Resourcepack.zip"
       - name: Add secondary files to resourcepack
         run: zip -u ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md
