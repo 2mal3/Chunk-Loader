@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "chunk-loader"
-version = "3.0.0"
+version = "3.0.1"
 description = ""
 authors = ["2mal3 <56305732+2mal3@users.noreply.github.com>"]
 readme = "README.md"

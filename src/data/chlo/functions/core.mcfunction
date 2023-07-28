@@ -4,7 +4,7 @@ function ~/load:
     scoreboard objectives add chlo.data dummy
 
     execute unless score %installed chlo.data matches 1 run function ~/install
-    execute if score %installed chlo.data matches 1 unless score $version chlo.data matches ctx.meta.version run function ./update
+    execute if score %installed chlo.data matches 1 unless score $version chlo.data matches ctx.meta.version run function ~/update
 
     # Loops
     schedule function chlo:loader/clock/tick 1t replace
@@ -31,6 +31,12 @@ function ~/load/install:
         tellraw @a:
             text: f"Installed {ctx.project_name} {ctx.project_version} from {ctx.project_author}!"
             color: "green"
+
+
+## Update
+function ~/load/update:
+    execute if score $version chlo.data matches 30000:
+        scoreboard players set $version chlo.data 30001
 
 
 ## First Join
