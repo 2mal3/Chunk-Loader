@@ -160,18 +160,18 @@ files = [
 
 [[package]]
 name = "mecha"
-version = "0.73.1"
+version = "0.76.2"
 description = "A powerful Minecraft command library"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "mecha-0.73.1-py3-none-any.whl", hash = "sha256:0dcb515f29ee02d9abb2b8cc18a7a95658011ee5e11cd4a29d43f14d70ae28cb"},
-    {file = "mecha-0.73.1.tar.gz", hash = "sha256:7139d2df2fc69fbc0531dcdb7356bc1ee4c2efb8d5198dae45e5524d2c519b65"},
+    {file = "mecha-0.76.2-py3-none-any.whl", hash = "sha256:1970cfdc72aceb982a6520e246288cc4a15a9b197328bc380724c029c8393bbc"},
+    {file = "mecha-0.76.2.tar.gz", hash = "sha256:da737323c08fd7b3cd7dce8f5ca2b239c8ad5342972b01b553fb14ccfaed79b1"},
 ]
 
 [package.dependencies]
 beet = ">=0.86.0"
-tokenstream = ">=1.5.0,<2.0.0"
+tokenstream = ">=1.7.0,<2.0.0"
 
 [[package]]
 name = "nbtlib"
@@ -335,13 +335,13 @@ files = [
 
 [[package]]
 name = "tokenstream"
-version = "1.5.0"
+version = "1.7.0"
 description = "A versatile token stream for handwritten parsers"
 optional = false
 python-versions = ">=3.10,<4.0"
 files = [
-    {file = "tokenstream-1.5.0-py3-none-any.whl", hash = "sha256:adf5805f3e734c863a535c5cfc31fed4bd831647b1f51d1aab69e5a81eb63b8e"},
-    {file = "tokenstream-1.5.0.tar.gz", hash = "sha256:3cb57c810f2fd1e57653c8270251a3df47656ef04f07eb3d4fc442f64f9ff0c0"},
+    {file = "tokenstream-1.7.0-py3-none-any.whl", hash = "sha256:fdbb20e8a99b07e94ce88016e5f243a1582630a7459bd2e7a1c786f33543fcf9"},
+    {file = "tokenstream-1.7.0.tar.gz", hash = "sha256:9f98387c7e74d224f7cca874ce77bb775ece6cb585e9ba18441960e2b35fae61"},
 ]
 
 [[package]]
@@ -369,4 +369,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "8b58286af87494d989f116f8869b11d3ab17efe867380ccd4034c7cd2d7fac81"
+content-hash = "f4642e43a569cf6d8c39fb902c42fef57a21cbaefbd80f96f87df02a4936e369"
