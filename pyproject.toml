@@ -1,0 +1,28 @@
+[project]
+name = ""
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "2mal3", email = "56305732+2mal3@users.noreply.github.com" }
+]
+dependencies = [
+    "beet==0.104.*",
+    "mecha==0.90.*",
+    "bolt==0.20.*",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]

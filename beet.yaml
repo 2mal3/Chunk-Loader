@@ -1,0 +1,41 @@
+id: ""
+name: ""
+description: ""
+author: "2mal3"
+version: "v0.1.0"
+minecraft: "1.20"
+
+output: "build"
+
+data_pack:
+  name: ""
+  description: "v0.1.0"
+  load:
+    - "src"
+    - pack.png: "pack.png"
+
+
+resource_pack:
+  name:  "-Resourcepack"
+  pack_format: 13
+  load:
+    - assets: "assets"
+    - pack.png: "pack.png"
+
+pipeline:
+  - mecha
+  - plugins.remove_empty_functions
+  - plugins.installation_advancement
+require:
+  - bolt
+
+meta:
+  version: 100
+
+  bolt:
+    entrypoint:
+      - ""
+
+  installation_advancement:
+    icon:
+      item: "minecraft:cobblestone"
