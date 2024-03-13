@@ -105,6 +105,7 @@ jobs:
         with:
           modrinth-id: ${{ env.MODRINTH_ID }}
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-unfeature-mode: intersection
           files: |
             ${{ env.NAME }}.zip
             ${{ env.NAME }}-Resourcepack.zip
