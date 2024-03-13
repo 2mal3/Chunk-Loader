@@ -7,8 +7,8 @@ authors = [
 ]
 dependencies = [
     "beet==0.104.*",
-    "mecha==0.90.*",
-    "bolt==0.20.*",
+    "mecha==0.91.*",
+    "bolt==0.47.*",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
