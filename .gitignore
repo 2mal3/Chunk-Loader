@@ -1,3 +1,8 @@
+# editor files
+.vscode/
+
+# generated files
 .beet_cache
-build
-plugins/__pycache__
+build/
+plugins/__pycache__/
+.venv/
