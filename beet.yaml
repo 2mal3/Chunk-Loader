@@ -17,7 +17,6 @@ data_pack:
 
 resource_pack:
   name:  "-Resourcepack"
-  pack_format: 13
   load:
     - assets: "assets"
     - pack.png: "pack.png"
