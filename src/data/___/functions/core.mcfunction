@@ -1,4 +1,4 @@
-from ___:log import log
+from 2mal3:log import log
 
 
 ## Load
