@@ -28,33 +28,6 @@ function ~/load/install:
           color: "green"
 
 
-## First Join
-function ~/first_join:
-    execute store result score .temp_0 ___.data run data get entity @s DataVersion
-    execute unless score .temp_0 ___.data matches 3463..3465:
-        tellraw @s [
-            {"text": "[", "color": "gray"},
-            {"text": f"{ctx.project_name}", "color": "red", "bold": true},
-            {"text": "]: ", "color": "gray"},
-            {
-                "text": "You are using the incorrect Minecraft version. Please check the website.",
-                "color": "red",
-                "bold": true
-            }
-        ]
-
-advancement ~/first_join {
-    "criteria": {
-        "requirement": {
-            "trigger": "minecraft:tick"
-        }
-    },
-    "rewards": {
-        "function": "___:core/first_join"
-    }
-}
-
-
 ## Uninstall
 function ~/uninstall:
     scoreboard objectives remove ___.data
