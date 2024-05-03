@@ -6,9 +6,9 @@ authors = [
     { name = "2mal3", email = "56305732+2mal3@users.noreply.github.com" }
 ]
 dependencies = [
-    "beet==0.104.*",
-    "mecha==0.91.*",
-    "bolt==0.47.*",
+    "beet==0.105.*",
+    "mecha==0.94.*",
+    "bolt==0.48.*",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
