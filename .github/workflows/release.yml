@@ -22,20 +22,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.11
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-      - name: Setup cache
-        id: cached-poetry-dependencies
-        uses: actions/cache@v4
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/requirements.lock') }}
+          cache: pip
       - name: Install dependencies
-        run: |
-          sed '/-e/d' requirements.lock > requirements.txt
-          pip install -r requirements.txt
+        run: pip install -r requirements.lock
 
       - name: Build
         run: beet
