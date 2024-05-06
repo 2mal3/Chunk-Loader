@@ -36,7 +36,6 @@ jobs:
         uses: ComunidadAylas/PackSquash-action@v4
         with:
           packsquash_version: v0.4.0
-          artifact_name: datapack-raw
           options: |
             pack_directory = "build/${{ env.NAME }}"
             output_file_path = "${{ env.NAME }}.zip"
@@ -47,7 +46,6 @@ jobs:
         uses: ComunidadAylas/PackSquash-action@v4
         with:
           packsquash_version: v0.4.0
-          artifact_name: resourcepack-raw
           options: |
             pack_directory = "build/${{ env.NAME }}-Resourcepack"
             output_file_path = "${{ env.NAME }}-Resourcepack.zip"
