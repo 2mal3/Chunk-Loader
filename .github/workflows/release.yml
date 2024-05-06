@@ -13,7 +13,7 @@ env:
   MODRINTH_ID: ''
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
 
     steps:
@@ -54,57 +54,23 @@ jobs:
       - name: Add secondary files to resourcepack
         run: zip -u ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifact
-          path: |
-            CHANGELOG.md
-            ${{ env.NAME }}.zip
-            ${{ env.NAME }}-Resourcepack.zip
-
-  release-github:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: artifact
-
-      - name: Create release
-        uses: softprops/action-gh-release@v1
-        with:
-          name: ${{ env.NAME }} ${{github.ref_name}}
-          body_path: CHANGELOG.md
-          files: |
-            ${{ env.NAME }}.zip
-            ${{ env.NAME }}-Resourcepack.zip
-
-  release-modrinth:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: artifact
-
       - name: Publish on Modrinth
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-id: ${{ env.MODRINTH_ID }}
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
           modrinth-unfeature-mode: intersection
-          files: |
-            ${{ env.NAME }}.zip
-            ${{ env.NAME }}-Resourcepack.zip
+
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
           name: ${{ env.NAME }} ${{github.ref_name}}
           version: ${{github.ref_name}}
           version-type: release
           changelog-file: CHANGELOG.md
+          files: |
+            ${{ env.NAME }}.zip
+            ${{ env.NAME }}-Resourcepack.zip
+
           loaders: datapack
           game-versions: |
             1.20.6
