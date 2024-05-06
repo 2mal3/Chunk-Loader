@@ -37,5 +37,5 @@ function ~/uninstall:
         color: "green"
 
     project_file_name = ctx.project_name.replace(' ', '-')
-    datapack disable f"file/{project_file_name}.zip"
+    datapack disable f"file/{project_file_name}"
     datapack disable f"file/{project_file_name}.zip"
