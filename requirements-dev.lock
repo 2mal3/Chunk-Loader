@@ -9,15 +9,12 @@
 #   generate-hashes: false
 #   universal: false
 
--e file:.
 annotated-types==0.7.0
     # via pydantic
 beet==0.108.1
     # via bolt
     # via mecha
-    # via template
 bolt==0.49.1
-    # via template
 click==8.1.7
     # via beet
     # via click-help-colors
@@ -29,7 +26,6 @@ markupsafe==2.1.5
     # via jinja2
 mecha==0.95.0
     # via bolt
-    # via template
 nbtlib==1.12.1
     # via beet
 numpy==2.0.1
