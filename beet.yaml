@@ -37,4 +37,4 @@ meta:
 
   installation_advancement:
     icon:
-      item: "minecraft:cobblestone"
+      id: "minecraft:cobblestone"
