@@ -57,7 +57,7 @@ jobs:
       - name: Check minecraft commands
         uses: mcbeet/check-commands@v1
         with:
-          version: "0.94.0"
+          version: "0.95.0"
           source: "."
           minecraft: ${{ env.VERSION }}
           stats: true
