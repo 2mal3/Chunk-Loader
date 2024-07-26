@@ -32,25 +32,15 @@ jobs:
       - name: Build
         run: beet
 
-      - name: Squash datapack
-        uses: ComunidadAylas/PackSquash-action@v4
-        with:
-          packsquash_version: v0.4.0
-          options: |
-            pack_directory = "build/${{ env.NAME }}"
-            output_file_path = "${{ env.NAME }}.zip"
-      - name: Add secondary files to datapack
-        run: zip -u ${{ env.NAME }} LICENSE.txt README.md CHANGELOG.md
+      - name: Pack Datapack
+        run: |
+          cp -r build/${{ env.NAME }}/* .
+          zip -r ${{ env.NAME }} LICENSE.txt README.md CHANGELOG.md data pack.mcmeta pack.png
 
-      - name: Squash resourcepack
-        uses: ComunidadAylas/PackSquash-action@v4
-        with:
-          packsquash_version: v0.4.0
-          options: |
-            pack_directory = "build/${{ env.NAME }}-Resourcepack"
-            output_file_path = "${{ env.NAME }}-Resourcepack.zip"
-      - name: Add secondary files to resourcepack
-        run: zip -u ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md
+      - name: Pack Resourcepack
+        run: |
+          cp -r build/${{ env.NAME }}-Resourcepack/* .
+          zip -r ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md data pack.mcmeta pack.png
 
       - name: Publish on Modrinth
         uses: Kir-Antipov/mc-publish@v3.3
