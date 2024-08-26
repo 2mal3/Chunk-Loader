@@ -1,22 +1,22 @@
-id: ""
-name: ""
-description: ""
+id: "chlo"
+name: "Chunk Loader"
+description: "Adds a chunk loader to the game that allows you to permanently load chunks!"
 author: "2mal3"
-version: "v0.1.0"
+version: "v3.0.1"
 minecraft: "1.21"
 
 output: "build"
 
 data_pack:
-  name: ""
-  description: "v0.1.0"
+  name: "Chunk-Loader"
+  description: "v3.0.1"
   load:
     - "src"
     - pack.png: "pack.png"
 
 
 resource_pack:
-  name:  "-Resourcepack"
+  name:  "Chunk-Loader-Resourcepack"
   load:
     - assets: "assets"
     - pack.png: "pack.png"
@@ -29,12 +29,8 @@ require:
   - bolt
 
 meta:
-  version: 100
-
-  bolt:
-    entrypoint:
-      - ""
+  version: 30001
 
   installation_advancement:
     icon:
-      id: "minecraft:cobblestone"
+      id: "minecraft:structure_block"

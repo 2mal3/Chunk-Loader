@@ -1,0 +1,61 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "blocks",
+  "pattern": [
+    "cic",
+    "iei",
+    "cic"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "result": {
+    "id": "minecraft:dolphin_spawn_egg",
+    "components": {
+      "minecraft:rarity": "uncommon",
+      "minecraft:item_name": "\"Chunk Loader\"",
+      "minecraft:custom_model_data": 7156515,
+      "minecraft:entity_data": {
+        "id": "minecraft:block_display",
+        "Tags": [
+          "chlo.init",
+          "chlo.chunk_loader",
+          "smithed.block"
+        ],
+        "block_state": {
+          "Name": "minecraft:structure_block",
+          "Properties": {
+            "mode": "data"
+          }
+        },
+        "transformation": {
+          "scale": [
+            1.02,
+            1.02,
+            1.02
+          ],
+          "translation": [
+            -0.51,
+            -0.01,
+            -0.51
+          ]
+        },
+        "Rotation": [
+          0.0,
+          0.1
+        ]
+      },
+      "minecraft:custom_data": {
+        "chunk_loader": 1
+      }
+    }
+  }
+}
