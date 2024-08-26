@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 env:
-  NAME: ''
-  MODRINTH_ID: ''
+  NAME: 'Chunk-Loader'
+  MODRINTH_ID: 'Eii02wjv'
 
 jobs:
   release:
