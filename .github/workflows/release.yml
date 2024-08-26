@@ -40,7 +40,7 @@ jobs:
       - name: Pack Resourcepack
         run: |
           cp -r build/${{ env.NAME }}-Resourcepack/* .
-          zip -r ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md data pack.mcmeta pack.png
+          zip -r ${{ env.NAME }}-Resourcepack LICENSE.txt README.md CHANGELOG.md assets pack.mcmeta pack.png
 
       - name: Publish on Modrinth
         uses: Kir-Antipov/mc-publish@v3.3
