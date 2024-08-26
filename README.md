@@ -1,6 +1,6 @@
 # Chunk Loader
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/2mal3/Chunk-Loader?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/2mal3/Chunk-Loader/total?style=flat-square) ![Minecraft](https://img.shields.io/badge/Minecraft-1.20-orange?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/2mal3/Chunk-Loader?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/2mal3/Chunk-Loader/total?style=flat-square) ![Minecraft](https://img.shields.io/badge/Minecraft-1.21-orange?style=flat-square)
 
 With Chunk Loader Datapack the Chunk Loader is added to the game. With it - surprise - you can permanently load chunks.
 This means that you can be anywhere in the world, while the chunk in which the Chunk Loader is placed is still loaded.
@@ -35,10 +35,9 @@ _Additional info: https://gist.github.com/Drovolon/24bfaae00d57e7a8ca64b792e14fa
 
 ## Technical Notes
 
+- **ONLY** the latest version of the datapack for Fabric and Vanilla 1.21.1 is supported
+- bug reports and suggestions are **ONLY** accepted on [GitHub](https://github.com/2mal3/Chunk-Loader-Datapack/issues)
 - the Chunk Loader can also be obtained with the command `/loot give @s loot chlo:chunk_loader`
-- works in Vanilla and Fabric in 1.19.4 in Single and Multiplayer
-- not tested with Forge, Bukkti, Spigot and PaperSpigot but probably don't work
-- compatible with other datapacks except Unlock all recipes datapacks and datapacks that forceload many chunks themselves
-- bug reports and suggestions are best done on [GitHub](https://github.com/2mal3/Chunk-Loader-Datapack/issues)
+- there could be problems with other datapacks that forceload many chunks themselves
 - to uninstall run the command `/function chlo:core/uninstall`
-- datapack was created with [beet](https://github.com/mcbeet/beet)
+- datapack was created with the help of [beet](https://github.com/mcbeet/beet)
