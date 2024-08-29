@@ -20,6 +20,9 @@ function ~/load/update:
     execute if score $version chlo.data matches 30000:
         log "info" "server" "Updating to v3.0.1"
         scoreboard players set $version chlo.data 30001
+    execute if score $version chlo.data matches 30001:
+        log "info" "server" "Updating to v3.0.2"
+        scoreboard players set $version chlo.data 30002
 
 
 ## Install

@@ -1,6 +1,6 @@
 [project]
-version = "0.1.0"
 name = "chunk-loader"
+version = "3.0.2"
 description = "Adds a chunk loader to the game that allows you to permanently load chunks!"
 authors = [
     { name = "2mal3", email = "56305732+2mal3@users.noreply.github.com" }
